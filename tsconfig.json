@@ -3,10 +3,6 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": "src",
-    "paths": {
-      "@atoms/*": ["components/atoms/*"],
-      "@molecules/*": ["components/molecules/*"]
-    },
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
