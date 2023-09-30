@@ -4,6 +4,11 @@ export enum Colors {
   white = "#FFFFFF",
   green = "#5B8B4B",
 
+  kakao_login = "#FDDC3F",
+  google_login = "#F4F4F4",
+  naver_login = "#23CB5B",
+  apple_login = "#000000",
+
   // font
   placeholder = "#6C6C6C",
   inputLabel = "#141414",
