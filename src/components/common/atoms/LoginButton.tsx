@@ -1,8 +1,8 @@
-import React, { CSSProperties } from "react";
+import { ButtonHTMLAttributes, CSSProperties } from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 
-interface LoginButtonProps {
+interface LoginButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   platform: string;
 }
 
