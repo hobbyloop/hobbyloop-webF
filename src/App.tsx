@@ -1,35 +1,31 @@
+import AdminLoginPage from "pages/AdminLoginPage";
 import HomePage from "pages/HomePage";
+import InstructorLoginPage from "pages/InstructorLoginPage";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding: 5px;
 `;
+
+const router = createBrowserRouter([
+  { path: "home", element: <HomePage /> },
+  {
+    path: "login_admin",
+    element: <AdminLoginPage />,
+  },
+  {
+    path: "login_instructor",
+    element: <InstructorLoginPage />,
+  },
+]);
 
 function App() {
   return (
     <Container>
-      {/* <StyledLogo />
-      <LoginHeader />
-      <Label>asdf</Label>
-      <Label required>asdf</Label>
-      <Input inputSize="long" placeholder="inactive" />
-      <Input inputSize="medium" placeholder="inactive" />
-      <Input inputSize="short" placeholder="inactive" />
-      <LabeledInput>
-        <Label required showInfo>
-          textbox title02
-        </Label>
-        <Input inputSize="long" placeholder="inactive" />
-      </LabeledInput>
-      <StuffedInput>
-        <StyledCalenderIcon />
-      </StuffedInput>
-      <GreenButton>인증번호 받기</GreenButton>
-      <RoundButton color="orange">asdf</RoundButton> */}
-      <HomePage />
+      <RouterProvider router={router} />
     </Container>
   );
 }
