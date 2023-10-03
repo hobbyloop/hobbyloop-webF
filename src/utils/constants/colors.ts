@@ -16,4 +16,8 @@ export enum Colors {
 
   // border
   gray = "#D7D7D7",
+
+  // background
+  app = "#EFEFE8",
+  footer = "#141414",
 }
