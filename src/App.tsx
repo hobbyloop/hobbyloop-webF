@@ -1,6 +1,7 @@
 import AdminLoginPage from "pages/AdminLoginPage";
 import HomePage from "pages/HomePage";
 import InstructorLoginPage from "pages/InstructorLoginPage";
+import NaverCallbackPage from "pages/NaverCallbackPage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 
@@ -11,7 +12,7 @@ const Container = styled.div`
 `;
 
 const router = createBrowserRouter([
-  { path: "home", element: <HomePage /> },
+  { path: "", element: <HomePage /> },
   {
     path: "login_admin",
     element: <AdminLoginPage />,
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "login_instructor",
     element: <InstructorLoginPage />,
+  },
+  {
+    path: "auth/naver/callback",
+    element: <NaverCallbackPage />,
   },
 ]);
 
