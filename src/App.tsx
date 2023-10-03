@@ -1,6 +1,8 @@
 import AdminLoginPage from "pages/AdminLoginPage";
 import HomePage from "pages/HomePage";
 import InstructorLoginPage from "pages/InstructorLoginPage";
+import FacilityRegisterPage from "pages/facility/FacilityRegisterPage";
+import ProfileSelectPage from "pages/facility/ProfileSelectPage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "login_instructor",
     element: <InstructorLoginPage />,
+  },
+  {
+    path: "facility",
+    element: <ProfileSelectPage />,
+  },
+  {
+    path: "facility/register",
+    element: <FacilityRegisterPage />,
   },
 ]);
 
