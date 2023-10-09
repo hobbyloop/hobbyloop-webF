@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import LoginButton from "../atoms/LoginButton";
+import axios from "axios";
+import { NAVER_CLIENT_ID, NAVER_REDIRECT_URI } from "utils/constants/auth";
 
 interface LoginTemplateProps {
   authority: "관리자" | "강사";
@@ -34,6 +36,10 @@ const H1 = styled.h1``;
  * @param {string} authority - '강사' | '관리자'
  */
 function LoginTemplate({ authority }: LoginTemplateProps) {
+  const naverLogin = () => {
+    window.location.href = `https://nid.naver.com/oauth2.0/authorize?response_type=code&state=test&client_id=${NAVER_CLIENT_ID}&redirect_uri=${NAVER_REDIRECT_URI}`;
+  };
+
   return (
     <Container>
       <StyledWrapper>
@@ -41,7 +47,7 @@ function LoginTemplate({ authority }: LoginTemplateProps) {
         <span>로그인 어쩌구 저쩌구</span>
         <LoginButton platform="kakao" />
         <LoginButton platform="google" />
-        <LoginButton platform="naver" />
+        <LoginButton onClick={naverLogin} platform="naver" />
         <LoginButton platform="apple" />
         {authority === "관리자" ? <span>입점 신청하기</span> : null}
       </StyledWrapper>
