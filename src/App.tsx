@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const router = createBrowserRouter([
-  { path: "home", element: <HomePage /> },
+  { path: "", element: <HomePage /> },
   {
     path: "login_admin",
     element: <AdminLoginPage />,
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "login_instructor",
     element: <InstructorLoginPage />,
+  },
+  {
+    path: "auth/naver/callback",
+    element: <NaverCallbackPage />,
   },
   {
     path: "facility",
