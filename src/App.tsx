@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const router = createBrowserRouter([
-  { path: "home", element: <HomePage /> },
+  { index: true, element: <HomePage /> },
   {
     path: "login_admin",
     element: <AdminLoginPage />,
