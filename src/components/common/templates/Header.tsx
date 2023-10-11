@@ -5,18 +5,22 @@ interface HeaderProps {
   children: React.ReactNode;
 }
 
-const Container = styled.div`
+const Container = styled.div<{ multipleChildren: boolean }>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100vw;
+  width: 100%;
   height: 80px;
   padding: 0 78px;
-  background-color: #ccc;
+  background-color: lightsalmon;
+  justify-content: ${(props) =>
+    props.multipleChildren ? "space-between" : "flex-start"};
 `;
 
 function Header({ children }: HeaderProps) {
-  return <Container>{children}</Container>;
+  const childCount = React.Children.count(children);
+  const multipleChildren = childCount > 1;
+
+  return <Container multipleChildren={multipleChildren}>{children}</Container>;
 }
 
 export default Header;
