@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
+import React from 'react';
+import styled from 'styled-components';
+import { Colors } from 'utils/constants/colors';
 
 interface StuffedInputProps {
   children: React.ReactNode;

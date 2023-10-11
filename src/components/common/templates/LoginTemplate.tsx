@@ -1,12 +1,10 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
-import LoginButton from "../atoms/LoginButton";
-import axios from "axios";
-import { NAVER_CLIENT_ID, NAVER_REDIRECT_URI } from "utils/constants/auth";
+import styled from 'styled-components';
+import { NAVER_CLIENT_ID, NAVER_REDIRECT_URI } from 'utils/constants/auth';
+import { Colors } from 'utils/constants/colors';
+import LoginButton from '../atoms/LoginButton';
 
 interface LoginTemplateProps {
-  authority: "관리자" | "강사";
+  authority: '관리자' | '강사';
 }
 
 const Container = styled.div`
@@ -49,7 +47,7 @@ function LoginTemplate({ authority }: LoginTemplateProps) {
         <LoginButton platform="google" />
         <LoginButton onClick={naverLogin} platform="naver" />
         <LoginButton platform="apple" />
-        {authority === "관리자" ? <span>입점 신청하기</span> : null}
+        {authority === '관리자' ? <span>입점 신청하기</span> : null}
       </StyledWrapper>
     </Container>
   );

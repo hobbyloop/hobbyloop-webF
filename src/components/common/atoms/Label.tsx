@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
-import { ReactComponent as Info } from "assets/ic_info.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { Colors } from 'utils/constants/colors';
+import { ReactComponent as Info } from 'assets/ic_info.svg';
 
 interface LabelProps extends StyledLabelProps {
   children: React.ReactNode;
@@ -17,7 +17,7 @@ const StyledLabel = styled.label<StyledLabelProps>`
   align-items: center;
   height: 11px;
   color: ${Colors.inputLabel};
-  font-family: "Pretendard";
+  font-family: 'Font_Black';
   font-size: 16px;
   font-weight: 700;
 `;

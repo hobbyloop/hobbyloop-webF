@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 function DayDiv() {
   return <div>DayDiv</div>;

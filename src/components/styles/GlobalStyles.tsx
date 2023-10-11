@@ -7,14 +7,13 @@ export const GlobalStyles = createGlobalStyle`
   div {
     box-sizing: border-box;
   }
+  
   button {
     padding: 0;
     background: none;
     border: none;
-    /* background: none; */
     &:hover {
       cursor: pointer;
-    }
-    
+    }    
   }
   `;
