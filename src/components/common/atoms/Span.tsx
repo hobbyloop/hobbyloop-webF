@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 function Span() {
   return <div>Span</div>;

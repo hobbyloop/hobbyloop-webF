@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ const Container = styled.div<{ multipleChildren: boolean }>`
   padding: 0 78px;
   background-color: lightsalmon;
   justify-content: ${(props) =>
-    props.multipleChildren ? 'space-between' : 'flex-start'};
+    props.multipleChildren ? "space-between" : "flex-start"};
 `;
 
 function Header({ children }: HeaderProps) {

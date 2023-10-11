@@ -1,11 +1,11 @@
-import axios from 'axios';
-import { useEffect } from 'react';
-import { NAVER_CLIENT_ID, NAVER_CLIENT_SECRET } from 'utils/constants/auth';
+import axios from "axios";
+import { useEffect } from "react";
+import { NAVER_CLIENT_ID, NAVER_CLIENT_SECRET } from "utils/constants/auth";
 
 function NaverCallbackPage() {
   useEffect(() => {
     const fetchAccessCode = async () => {
-      const code = new URL(window.location.href).searchParams.get('code');
+      const code = new URL(window.location.href).searchParams.get("code");
       console.log(code);
 
       try {
@@ -19,7 +19,7 @@ function NaverCallbackPage() {
         // 네이버 로그인 페이지로 리다이렉션
         window.location.href = response.data;
       } catch (error) {
-        console.error('네이버 로그인 오류:', error);
+        console.error("네이버 로그인 오류:", error);
       }
     };
     fetchAccessCode();

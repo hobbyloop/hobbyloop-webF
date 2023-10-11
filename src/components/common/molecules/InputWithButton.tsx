@@ -1,5 +1,5 @@
-import Input from 'components/common/atoms/Input';
-import React from 'react';
+import Input from "components/common/atoms/Input";
+import React from "react";
 
 function InputWithButton() {
   return (

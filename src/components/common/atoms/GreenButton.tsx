@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Colors } from 'utils/constants/colors';
+import React from "react";
+import styled from "styled-components";
+import { Colors } from "utils/constants/colors";
 
 interface GreenButtonProps {
   children: React.ReactNode;
@@ -15,7 +15,7 @@ const Button = styled.button`
   border-radius: 8px;
 
   color: ${Colors.green};
-  font-family: 'Font_Black';
+  font-family: "Font_Black";
   font-size: 16px;
   font-weight: 700;
   line-height: 190%;

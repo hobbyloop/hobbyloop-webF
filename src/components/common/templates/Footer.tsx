@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Colors } from 'utils/constants/colors';
+import React from "react";
+import styled from "styled-components";
+import { Colors } from "utils/constants/colors";
 
 const Container = styled.div`
   position: fixed;
@@ -11,7 +11,7 @@ const Container = styled.div`
   background-color: ${Colors.footer};
 
   color: #777;
-  font-family: 'Font_Black';
+  font-family: "Font_Black";
   font-size: 12px;
   font-weight: 500;
 `;
