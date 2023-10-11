@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 100%;
   height: 200px;
   padding: 50px 120px;
-  background-color: ${Colors.footer};
+  background-color: ${Colors.black};
 
   color: #777;
   font-family: "Font_Black";

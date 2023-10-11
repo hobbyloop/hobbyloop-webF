@@ -11,7 +11,6 @@ export enum Colors {
 
   // font
   placeholder = "#6C6C6C",
-  inputLabel = "#141414",
   indicator = "#EB2323",
 
   // border
@@ -19,5 +18,6 @@ export enum Colors {
 
   // background
   app = "#EFEFE8",
-  // footer = "#141414",
+
+  black = "#141414",
 }

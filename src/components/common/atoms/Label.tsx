@@ -16,7 +16,7 @@ const StyledLabel = styled.label<StyledLabelProps>`
   display: flex;
   align-items: center;
   height: 11px;
-  color: ${Colors.inputLabel};
+  color: ${Colors.black};
   font-family: "Font_Black";
   font-size: 16px;
   font-weight: 700;
