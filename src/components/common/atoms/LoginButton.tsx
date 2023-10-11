@@ -1,8 +1,8 @@
-import React, { CSSProperties } from "react";
+import { ButtonHTMLAttributes, CSSProperties } from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 
-interface LoginButtonProps {
+interface LoginButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   platform: string;
 }
 
@@ -13,7 +13,7 @@ const Button = styled.button<CSSProperties>`
   background-color: ${(props) => props.backgroundColor};
 `;
 
-function LoginButton({ platform }: LoginButtonProps) {
+function LoginButton({ platform, ...restButtonProps }: LoginButtonProps) {
   let theme = {
     icon: "",
     color: "",
@@ -38,7 +38,11 @@ function LoginButton({ platform }: LoginButtonProps) {
       break;
   }
 
-  return <Button backgroundColor={theme.color}>{theme.icon}</Button>;
+  return (
+    <Button backgroundColor={theme.color} {...restButtonProps}>
+      {theme.icon}
+    </Button>
+  );
 }
 
 export default LoginButton;
