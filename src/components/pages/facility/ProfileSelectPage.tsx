@@ -1,10 +1,10 @@
-import Footer from "components/common/templates/Footer";
-import Header from "components/common/templates/Header";
-import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
+import Footer from 'components/common/templates/Footer';
+import Header from 'components/common/templates/Header';
+import styled from 'styled-components';
+import { Colors } from 'utils/constants/colors';
 
-import addFacilityImg from "assets/Group 4404.png";
-import { Link } from "react-router-dom";
+import addFacilityImg from 'assets/Group 4404.png';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   box-sizing: border-box;

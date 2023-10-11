@@ -1,9 +1,9 @@
-import Logo from "components/common/atoms/Logo";
-import Header from "components/common/templates/Header";
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
+import Logo from 'components/common/atoms/Logo';
+import Header from 'components/common/templates/Header';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { Colors } from 'utils/constants/colors';
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const LoginButton = styled.button`
   border: 1px solid ${Colors.orange};
   border-radius: 20px;
   background-color: white;
-  font-family: "Pretendard";
+  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 16px;
 `;
@@ -54,10 +54,10 @@ function HomePage() {
       <Header>
         <Logo />
         <ButtonsWrapper>
-          <LoginButton onClick={() => navigate("/login_admin")}>
+          <LoginButton onClick={() => navigate('/login_admin')}>
             관리자 로그인
           </LoginButton>
-          <LoginButton onClick={() => navigate("/login_instructor")}>
+          <LoginButton onClick={() => navigate('/login_instructor')}>
             강사 로그인
           </LoginButton>
         </ButtonsWrapper>
