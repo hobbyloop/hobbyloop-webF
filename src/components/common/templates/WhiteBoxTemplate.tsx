@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import Header from "./Header";
 
-export interface WhiteContentTemplateProps {
+export interface WhiteBoxTemplateProps {
   headerElements?: React.ReactElement;
   children: React.ReactNode;
 }
@@ -20,19 +20,18 @@ const WhiteWrapper = styled.div`
   width: 792px;
   margin-top: 48px;
   margin-bottom: 120px;
+  padding: 80px 100px;
+  border-radius: 16px;
+  border: 1px solid #e8e5e3;
   background-color: ${Colors.white};
 `;
 
-function WhiteContentTemplate({
-  headerElements,
-  children,
-}: WhiteContentTemplateProps) {
+function WhiteBoxTemplate({ children }: WhiteBoxTemplateProps) {
   return (
     <Container>
-      <Header>logo{headerElements}</Header>
       <WhiteWrapper>{children}</WhiteWrapper>
     </Container>
   );
 }
 
-export default WhiteContentTemplate;
+export default WhiteBoxTemplate;
