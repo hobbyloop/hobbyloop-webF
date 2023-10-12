@@ -2,6 +2,7 @@ import AdminLoginPage from "components/pages/AdminLoginPage";
 import HomePage from "components/pages/HomePage";
 import InstructorLoginPage from "components/pages/InstructorLoginPage";
 import NaverCallbackPage from "components/pages/NaverCallbackPage";
+import CompanyRegisterPage from "components/pages/company/CompanyRegisterPage";
 import FacilityRegisterPage from "components/pages/facility/FacilityRegisterPage";
 import ProfileSelectPage from "components/pages/facility/ProfileSelectPage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "auth/naver/callback",
     element: <NaverCallbackPage />,
+  },
+  {
+    path: "company/register",
+    element: <CompanyRegisterPage />,
   },
   {
     path: "facility",

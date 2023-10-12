@@ -1,23 +1,32 @@
 import Logo from "components/common/atoms/Logo";
+import TitleBar from "components/common/molecules/TitleBar";
 import Header from "components/common/templates/Header";
 import WhiteBoxTemplate from "components/common/templates/WhiteBoxTemplate";
-import React from "react";
 import styled from "styled-components";
+// import { useState } from "react";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100%;
 `;
 
-function FacilityRegisterPage() {
+const StyledWhite = styled(WhiteBoxTemplate)`
+  flex: 1;
+`;
+
+function CompanyRegisterPage() {
+  //   const [page, setPage] = useState<number>(1);
   return (
     <Container>
       <Header>
         <Logo />
       </Header>
-      <WhiteBoxTemplate>asdf</WhiteBoxTemplate>
+      <StyledWhite>
+        <TitleBar currentPage={1} maxPage={4} />
+      </StyledWhite>
     </Container>
   );
 }
 
-export default FacilityRegisterPage;
+export default CompanyRegisterPage;
