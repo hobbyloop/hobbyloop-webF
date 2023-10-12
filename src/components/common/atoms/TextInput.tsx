@@ -1,13 +1,15 @@
-import React, { useRef } from "react";
+import React, { InputHTMLAttributes, useRef } from "react";
 import { styled } from "styled-components";
 import { Colors } from "utils/constants/colors";
 
-interface InputProps {
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize: "long" | "medium" | "short";
   placeholder: string;
 }
 
-const StyledInput = styled.input<InputProps>`
+const Input = styled.input.attrs(() => ({
+  type: "text",
+}))<InputProps>`
   border: 1px solid #d7d7d7;
   border-radius: 8px;
   font-family: "Font_Black";
@@ -30,16 +32,17 @@ const StyledInput = styled.input<InputProps>`
   }
 `;
 
-function Input({ inputSize, placeholder }: InputProps) {
+function TextInput({ inputSize, placeholder, ...restProps }: InputProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   return (
-    <StyledInput
+    <Input
       inputSize={inputSize}
       placeholder={placeholder}
       ref={inputRef}
+      {...restProps}
     />
   );
 }
 
-export default Input;
+export default TextInput;
