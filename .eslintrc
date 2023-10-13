@@ -23,7 +23,8 @@
   },
   "plugins": ["@typescript-eslint", "prettier"], // 사용할 ESLint 플러그인을 지정합니다.
   "rules": {
-    "no-unused-vars": ["warn", { "vars": "all", "args": "none" }], // 사용하지 않는 변수 'warning'설정
+    "no-unused-vars": "off", // 사용하지 않는 변수 error/warn/off (기본 설정)
+    "@typescript-eslint/no-unused-vars": "warn", // typescript
     "react/jsx-uses-vars": "warn", // 사용되지 않는 JSX 변수를 오류로 표시합니다.
     "react/react-in-jsx-scope": 0, // React import 필수 여부
     "@typescript-eslint/explicit-module-boundary-types": 0, // TypeScript에서 명시적인 모듈 경계 타입을 요구하지 않도록 설정합니다.
