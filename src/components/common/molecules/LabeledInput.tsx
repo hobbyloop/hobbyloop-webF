@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import Label from "../atoms/Label";
+import TextInput from "../atoms/TextInput";
 
 interface LabeledInputProps {
-  children: React.ReactNode;
+  labelText: string;
+  inputId: string;
+  placeholder: string;
 }
 
 const Container = styled.div`
@@ -11,8 +15,13 @@ const Container = styled.div`
   gap: 16px;
 `;
 
-function LabeledInput({ children }: LabeledInputProps) {
-  return <Container>{children}</Container>;
+function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
+  return (
+    <Container>
+      <Label htmlFor={inputId}>{labelText}</Label>
+      <TextInput inputSize="long" id={inputId} placeholder={placeholder} />
+    </Container>
+  );
 }
 
 export default LabeledInput;
