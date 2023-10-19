@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 
 export interface PaginationProps {
-  currentPage: number;
-  maxPage: number;
+  currentPage?: number;
+  maxPage?: number;
 }
 
 const Container = styled.div`
