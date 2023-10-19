@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import Pagination, { PaginationProps } from "../atoms/Pagination";
 
-interface TitleBarProps extends PaginationProps {}
+interface TitleBarProps extends PaginationProps {
+  showPage?: boolean;
+}
 
 const Container = styled.div`
   display: flex;
@@ -27,12 +29,16 @@ const H2 = styled.h2`
   font-style: normal;
   font-weight: 700;
 `;
-function TitleBar({ currentPage, maxPage }: TitleBarProps) {
+function TitleBar({ currentPage, maxPage, showPage = true }: TitleBarProps) {
   return (
     <Container>
       <StyledWrapper>
         <H1>입점 등록신청</H1>
-        <Pagination currentPage={currentPage} maxPage={maxPage} />
+        {showPage ? (
+          <Pagination currentPage={currentPage} maxPage={maxPage} />
+        ) : (
+          ""
+        )}
       </StyledWrapper>
       <H2>업체 등록을 위한 약관에 동의해주세요.</H2>
     </Container>
