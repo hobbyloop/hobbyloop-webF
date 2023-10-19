@@ -27,7 +27,30 @@ const StyledWrapper = styled.div`
   background-color: ${Colors.white};
 `;
 
-const H1 = styled.h1``;
+const H1 = styled.h1`
+  margin-bottom: 20px;
+  font-size: 38px;
+  font-weight: 700;
+`;
+
+const Span = styled.span`
+  margin-bottom: 40px;
+  font-size: 22px;
+  font-weight: 700;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 28px;
+`;
+
+const Anchor = styled.a`
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
 /**
  * @description 권한 받아서 관리자/강사 로그인 구분
@@ -42,12 +65,14 @@ function LoginTemplate({ authority }: LoginTemplateProps) {
     <Container>
       <StyledWrapper>
         <H1>{authority} 로그인</H1>
-        <span>로그인 어쩌구 저쩌구</span>
-        <LoginButton platform="kakao" />
-        <LoginButton platform="google" />
-        <LoginButton onClick={naverLogin} platform="naver" />
-        <LoginButton platform="apple" />
-        {authority === "관리자" ? <span>입점 신청하기</span> : null}
+        <Span>로그인 어쩌구 저쩌구</Span>
+        <ButtonWrapper>
+          <LoginButton platform="kakao" />
+          <LoginButton platform="google" />
+          <LoginButton onClick={naverLogin} platform="naver" />
+          <LoginButton platform="apple" />
+        </ButtonWrapper>
+        {authority === "관리자" ? <Anchor>입점 신청하기</Anchor> : null}
       </StyledWrapper>
     </Container>
   );
