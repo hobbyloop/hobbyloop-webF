@@ -11,7 +11,6 @@ const Container = styled.div<{ multipleChildren: boolean }>`
   width: 100%;
   height: 80px;
   padding: 0 78px;
-  background-color: lightsalmon;
   justify-content: ${(props) =>
     props.multipleChildren ? "space-between" : "flex-start"};
 `;
