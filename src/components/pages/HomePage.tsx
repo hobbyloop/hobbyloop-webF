@@ -1,8 +1,9 @@
 import Logo from "components/common/atoms/Logo";
+import TextButton from "components/common/atoms/TextButton";
+import Footer from "components/common/templates/Footer";
 import Header from "components/common/templates/Header";
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import { Colors } from "utils/constants/colors";
 
 const Container = styled.div`
@@ -14,17 +15,6 @@ const Container = styled.div`
   width: 100vw;
 `;
 
-const LoginButton = styled.button`
-  width: 117px;
-  height: 40px;
-  border: 1px solid ${Colors.orange};
-  border-radius: 20px;
-  background-color: white;
-  font-family: "Pretendard";
-  font-weight: 500;
-  font-size: 16px;
-`;
-
 const ButtonsWrapper = styled.div`
   display: flex;
   gap: 22px;
@@ -32,40 +22,86 @@ const ButtonsWrapper = styled.div`
 
 const Body = styled.div`
   display: flex;
+  gap: 30px;
+  width: 100%;
+  padding: 80px 120px 120px 80px;
 `;
 
-const Introduce1 = styled.div`
+const Promotion = styled.div`
   display: flex;
   flex-direction: column;
   width: 791px;
   height: 503px;
+  padding: 40px 60px;
+  border: 1px solid #f9f9f9;
+  border-radius: 16px;
 `;
-const Introduce2 = styled.div`
+
+const PriceInfo = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 384px;
   height: 503px;
+  padding: 40px 0;
+  border: 1px solid #f9f9f9;
+  border-radius: 16px;
 `;
 
 function HomePage() {
   const navigate = useNavigate();
+
+  const adminCustomStyle: CSSObject = {
+    fontWeight: 500,
+    borderRadius: "30px",
+    width: "117px",
+    height: "40px",
+  };
+
+  const instructorCustomStyle: CSSObject = {
+    fontWeight: 500,
+    borderRadius: "30px",
+    width: "117px",
+    height: "40px",
+    backgroundColor: Colors.white,
+    color: Colors.black,
+    border: `1px solid ${Colors.orange}`,
+  };
+
   return (
     <Container>
       <Header>
         <Logo />
         <ButtonsWrapper>
-          <LoginButton onClick={() => navigate("/login_admin")}>
+          <TextButton
+            onClick={() => navigate("/login_admin")}
+            customStyle={adminCustomStyle}
+          >
             관리자 로그인
-          </LoginButton>
-          <LoginButton onClick={() => navigate("/login_instructor")}>
+          </TextButton>
+          <TextButton
+            onClick={() => navigate("/login_instructor")}
+            customStyle={instructorCustomStyle}
+          >
             강사 로그인
-          </LoginButton>
+          </TextButton>
         </ButtonsWrapper>
       </Header>
       <Body>
-        <Introduce1>프로모션</Introduce1>
-        <Introduce2>가격정보</Introduce2>
+        <Promotion>
+          <h2>Promotion</h2>
+          <p>가입 플로우 안내 내용</p>
+          <p>업체 등록 프로모션 내용</p>
+          <p>하비루프는요</p>
+        </Promotion>
+        <PriceInfo>
+          <h2>가격정보</h2>
+          <span>기본요금: 38,500원</span>
+          <span>프리미엄: 300,000원</span>
+          <TextButton>업체 등록하기</TextButton>
+        </PriceInfo>
       </Body>
+      <Footer />
     </Container>
   );
 }
