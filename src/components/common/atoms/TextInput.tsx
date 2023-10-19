@@ -1,10 +1,11 @@
-import React, { InputHTMLAttributes, useRef } from "react";
+import { InputHTMLAttributes, useRef } from "react";
 import { styled } from "styled-components";
 import { Colors } from "utils/constants/colors";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize: "long" | "medium" | "short";
   placeholder: string;
+  required?: boolean;
 }
 
 const Input = styled.input.attrs(() => ({
@@ -27,16 +28,23 @@ const Input = styled.input.attrs(() => ({
   }};
   height: 48px;
   padding: 0 20px;
+
   ::placeholder {
     color: ${Colors.placeholder};
   }
 `;
 
-function TextInput({ inputSize, placeholder, ...restProps }: InputProps) {
+function TextInput({
+  inputSize,
+  placeholder,
+  required = false,
+  ...restProps
+}: InputProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   return (
     <Input
+      required={required}
       inputSize={inputSize}
       placeholder={placeholder}
       ref={inputRef}
