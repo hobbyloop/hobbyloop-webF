@@ -2,19 +2,19 @@ import React, { LabelHTMLAttributes } from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import { ReactComponent as Info } from "assets/ic_info.svg";
+import { ICustomStyle } from "types/style";
 
 interface LabelProps
   extends StyledLabelProps,
-    LabelHTMLAttributes<HTMLLabelElement> {
-  children: React.ReactNode;
-}
+    LabelHTMLAttributes<HTMLLabelElement>,
+    ICustomStyle {}
 
 interface StyledLabelProps {
   required?: boolean;
   showInfo?: boolean;
 }
 
-const StyledLabel = styled.label<StyledLabelProps>`
+const StyledLabel = styled.label<StyledLabelProps & ICustomStyle>`
   display: flex;
   align-items: center;
   height: 11px;
@@ -38,9 +38,20 @@ const StyledInfo = styled(Info)`
   padding-bottom: 2px;
 `;
 
-function Label({ htmlFor, children, required, showInfo }: LabelProps) {
+function Label({
+  htmlFor,
+  children,
+  required,
+  showInfo,
+  customStyle,
+}: LabelProps) {
   return (
-    <StyledLabel htmlFor={htmlFor} required={required} showInfo={showInfo}>
+    <StyledLabel
+      htmlFor={htmlFor}
+      required={required}
+      showInfo={showInfo}
+      customStyle={customStyle}
+    >
       {children}
       {required && <RequiredIndicator>*</RequiredIndicator>}
       {showInfo && <StyledInfo width="16px" height="16px" />}
