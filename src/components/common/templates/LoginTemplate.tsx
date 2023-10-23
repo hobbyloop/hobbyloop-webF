@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { NAVER_CLIENT_ID, NAVER_REDIRECT_URI } from "utils/constants/auth";
 import { Colors } from "utils/constants/colors";
 import LoginButton from "../atoms/LoginButton";
+import { useEffect } from "react";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 interface LoginTemplateProps {
   authority: "관리자" | "강사";
@@ -57,6 +60,11 @@ const Anchor = styled.a`
  * @param {string} authority - '강사' | '관리자'
  */
 function LoginTemplate({ authority }: LoginTemplateProps) {
+  const kakaoLogin = async () => {
+    const response = await axios.get("/oauth2/authorization/kakao");
+    return response.data;
+  };
+
   const naverLogin = () => {
     window.location.href = `https://nid.naver.com/oauth2.0/authorize?response_type=code&state=test&client_id=${NAVER_CLIENT_ID}&redirect_uri=${NAVER_REDIRECT_URI}`;
   };

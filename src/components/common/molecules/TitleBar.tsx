@@ -29,7 +29,11 @@ const H2 = styled.h2`
   font-style: normal;
   font-weight: 700;
 `;
-function TitleBar({ currentPage, maxPage, showPage = true }: TitleBarProps) {
+function TitleBar({
+  currentPage = 1,
+  maxPage,
+  showPage = true,
+}: TitleBarProps) {
   return (
     <Container>
       <StyledWrapper>

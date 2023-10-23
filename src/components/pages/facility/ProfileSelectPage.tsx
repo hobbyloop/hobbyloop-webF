@@ -11,7 +11,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 80vh;
-  background-color: ${Colors.app};
 `;
 
 const ContentWrapper = styled.div`

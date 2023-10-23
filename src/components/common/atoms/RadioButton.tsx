@@ -1,7 +1,15 @@
-import React from "react";
+import styled from "styled-components";
+
+export interface IRadioButtonProps {}
+
+const Container = styled.input.attrs((props) => ({
+  type: "radio",
+}))`
+  display: flex;
+`;
 
 function RadioButton() {
-  return <div>RadioButton</div>;
+  return <Container>RadioButton</Container>;
 }
 
 export default RadioButton;

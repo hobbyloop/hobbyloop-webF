@@ -1,9 +1,11 @@
-import React from "react";
+import React, { LabelHTMLAttributes } from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import { ReactComponent as Info } from "assets/ic_info.svg";
 
-interface LabelProps extends StyledLabelProps {
+interface LabelProps
+  extends StyledLabelProps,
+    LabelHTMLAttributes<HTMLLabelElement> {
   children: React.ReactNode;
 }
 
@@ -34,12 +36,11 @@ const StyledInfo = styled(Info)`
   line-height: 24px;
   margin-left: 6px;
   padding-bottom: 2px;
-
-  /* background-color: black; */
 `;
-function Label({ children, required, showInfo }: LabelProps) {
+
+function Label({ htmlFor, children, required, showInfo }: LabelProps) {
   return (
-    <StyledLabel required={required} showInfo={showInfo}>
+    <StyledLabel htmlFor={htmlFor} required={required} showInfo={showInfo}>
       {children}
       {required && <RequiredIndicator>*</RequiredIndicator>}
       {showInfo && <StyledInfo width="16px" height="16px" />}

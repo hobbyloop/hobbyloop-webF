@@ -4,8 +4,8 @@ import TextInput from "../atoms/TextInput";
 
 interface LabeledInputProps {
   labelText: string;
-  inputPlaceholder: string;
-  required?: boolean;
+  inputId: string;
+  placeholder: string;
 }
 
 const Container = styled.div`
@@ -14,19 +14,11 @@ const Container = styled.div`
   gap: 16px;
 `;
 
-function LabeledInput({
-  labelText,
-  inputPlaceholder,
-  required,
-}: LabeledInputProps) {
+function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
   return (
     <Container>
-      <Label>{labelText}</Label>
-      <TextInput
-        inputSize="long"
-        placeholder={inputPlaceholder}
-        required={required}
-      />
+      <Label htmlFor={inputId}>{labelText}</Label>
+      <TextInput inputSize="long" id={inputId} placeholder={placeholder} />
     </Container>
   );
 }
