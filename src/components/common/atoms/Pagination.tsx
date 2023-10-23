@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { ICustomStyle } from "types/style";
 import { Colors } from "utils/constants/colors";
 
-export interface PaginationProps {
+export interface PaginationProps extends ICustomStyle {
   currentPage?: number;
   maxPage?: number;
 }
 
-const Container = styled.div`
+const Container = styled.div<ICustomStyle>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,9 +20,9 @@ const Container = styled.div`
   border-radius: 18px;
 `;
 
-function Pagination({ currentPage, maxPage }: PaginationProps) {
+function Pagination({ currentPage, maxPage, customStyle }: PaginationProps) {
   return (
-    <Container>
+    <Container customStyle={customStyle}>
       {currentPage}/{maxPage}
     </Container>
   );
