@@ -1,10 +1,8 @@
+import axios from "axios";
 import styled from "styled-components";
 import { NAVER_CLIENT_ID, NAVER_REDIRECT_URI } from "utils/constants/auth";
 import { Colors } from "utils/constants/colors";
-import LoginButton from "../atoms/LoginButton";
-import { useEffect } from "react";
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import LoginButton from "components/pages/auth/components/LoginButton";
 
 interface LoginTemplateProps {
   authority: "관리자" | "강사";
