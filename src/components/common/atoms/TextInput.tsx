@@ -7,7 +7,6 @@ interface InputProps
   extends InputHTMLAttributes<HTMLInputElement>,
     ICustomStyle {
   inputSize: "long" | "medium" | "short";
-  placeholder: string;
   required?: boolean;
 }
 
@@ -16,13 +15,12 @@ const Input = styled.input.attrs(() => ({
 }))<InputProps>`
   border: 1px solid #d7d7d7;
   border-radius: 8px;
-  font-family: "Font_Black";
   font-size: 16px;
   font-weight: 500;
   width: ${(props) => {
     switch (props.inputSize) {
       case "long":
-        return "588px";
+        return "100%";
       case "medium":
         return "290px";
       case "short":
@@ -31,6 +29,7 @@ const Input = styled.input.attrs(() => ({
   }};
   height: 48px;
   padding: 0 20px;
+  box-sizing: border-box;
 
   ::placeholder {
     color: ${Colors.placeholder};
