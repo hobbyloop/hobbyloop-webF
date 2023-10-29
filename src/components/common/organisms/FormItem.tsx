@@ -1,11 +1,13 @@
 import { ComponentProps, Ref, forwardRef } from "react";
 import RadioButtonPreset from "./form/RadioButtonPreset";
 import FieldSetTemplate from "./form/FieldSetTemplate";
+import TextInputPreset from "./form/TextInputPreset";
 
-type TemplateId = "radio";
+type TemplateId = "radio" | "textInput";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 type RadioButtonFactory = ComponentProps<typeof RadioButtonPreset>["factory"];
+type TextInputFactory = ComponentProps<typeof TextInputPreset>["factory"];
 
 interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
@@ -15,7 +17,11 @@ interface Props<T extends TemplateId> {
   fieldsetOptions?: FieldsetOptions;
 
   /** templateId에 매핑된 컴포넌트를 사용하기 위해 필요한 값 (구성요소) */
-  factory: T extends "radio" ? RadioButtonFactory : never;
+  factory: T extends "radio"
+    ? RadioButtonFactory
+    : T extends "textInput"
+    ? TextInputFactory
+    : never;
 }
 
 const FormItem4Ref = <T extends TemplateId>(
@@ -28,6 +34,17 @@ const FormItem4Ref = <T extends TemplateId>(
       <RadioButtonPreset
         ref={ref}
         factory={{ ...(factory as RadioButtonFactory) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
+
+  // text input fieldset
+  if (templateId === "textInput") {
+    return (
+      <TextInputPreset
+        ref={ref}
+        factory={{ ...(factory as TextInputFactory) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
