@@ -35,14 +35,15 @@ const RectangleRadioButtonPreset = forwardRef<HTMLDivElement, Props>(
       isLabelNumbering = false,
       elements,
     } = factory;
+
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <FlexContainer inline={isInline}>
-          {elements.map(({ value, ...rest }, idx) => (
+          {elements.map(({ ...rest }, idx) => (
             <RectangleRadioButton
               {...rest}
               inline={isInline}
-              key={name + value}
+              key={name + rest.value}
               name={name}
               labelNumber={isLabelNumbering ? idx + 1 : undefined}
               onChange={(e) => onChange(e.target.value)}
