@@ -3,13 +3,17 @@ import RadioButtonPreset from "./form/RadioButtonPreset";
 import FieldSetTemplate from "./form/FieldSetTemplate";
 import TextInputPreset from "./form/TextInputPreset";
 import TextAreaPreset from "./form/TextAreaTemplate";
+import RectangleRadioButtonPreset from "./form/RectangleRadioButtonPreset";
 
-type TemplateId = "radio" | "textInput" | "textarea";
+type TemplateId = "radio" | "textInput" | "textarea" | "rectangleRadio";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 type RadioButtonFactory = ComponentProps<typeof RadioButtonPreset>["factory"];
 type TextInputFactory = ComponentProps<typeof TextInputPreset>["factory"];
 type TextAreaFactory = ComponentProps<typeof TextAreaPreset>["factory"];
+type RectangleRadioButtonFactory = ComponentProps<
+  typeof RectangleRadioButtonPreset
+>["factory"];
 
 interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
@@ -25,6 +29,8 @@ interface Props<T extends TemplateId> {
     ? TextInputFactory
     : T extends "textarea"
     ? TextAreaFactory
+    : T extends "rectangleRadio"
+    ? RectangleRadioButtonFactory
     : never;
 }
 
@@ -60,6 +66,17 @@ const FormItem4Ref = <T extends TemplateId>(
       <TextAreaPreset
         ref={ref}
         factory={{ ...(factory as TextAreaFactory) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
+
+  // rectangle radio button fieldset
+  if (templateId === "rectangleRadio") {
+    return (
+      <RectangleRadioButtonPreset
+        ref={ref}
+        factory={{ ...(factory as RectangleRadioButtonFactory) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
