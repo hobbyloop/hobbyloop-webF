@@ -5,7 +5,7 @@ import RectangleRadioButton from "components/common/atoms/RectangleRadioButton";
 
 type RectangleRadioButtonFactory = Omit<
   ComponentProps<typeof RectangleRadioButton>,
-  "name" | "onChange"
+  "name" | "onChange" | "labelNumber"
 > &
   Required<Pick<ComponentProps<typeof RectangleRadioButton>, "value">>;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
@@ -16,6 +16,11 @@ interface Props {
     name: string;
     onChange: (v: string) => void;
     isInline?: boolean;
+    /**
+     * 라벨에 넘버링 기능을 사용 할 것인지 여부
+     * @default false
+     * */
+    isLabelNumbering?: boolean;
     elements: RectangleRadioButtonFactory[];
   };
 }
@@ -23,16 +28,23 @@ interface Props {
 /** formType === "rectangleRadio" */
 const RectangleRadioButtonPreset = forwardRef<HTMLDivElement, Props>(
   ({ fieldSetOptions, factory }, ref) => {
-    const { name, onChange, isInline = true, elements } = factory;
+    const {
+      name,
+      onChange,
+      isInline = true,
+      isLabelNumbering = false,
+      elements,
+    } = factory;
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <FlexContainer inline={isInline}>
-          {elements.map(({ ...rest }) => (
+          {elements.map(({ value, ...rest }, idx) => (
             <RectangleRadioButton
               {...rest}
               inline={isInline}
-              key={name + rest.value}
+              key={name + value}
               name={name}
+              labelNumber={isLabelNumbering ? idx + 1 : undefined}
               onChange={(e) => onChange(e.target.value)}
             />
           ))}
