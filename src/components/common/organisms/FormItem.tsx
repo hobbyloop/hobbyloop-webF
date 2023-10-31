@@ -4,8 +4,14 @@ import FieldSetTemplate from "./form/FieldSetTemplate";
 import TextInputPreset from "./form/TextInputPreset";
 import TextAreaPreset from "./form/TextAreaTemplate";
 import RectangleRadioButtonPreset from "./form/RectangleRadioButtonPreset";
+import RectangleCheckboxPreset from "./form/RectangleCheckboxPreset";
 
-type TemplateId = "radio" | "textInput" | "textarea" | "rectangleRadio";
+type TemplateId =
+  | "radio"
+  | "textInput"
+  | "textarea"
+  | "rectangleRadio"
+  | "rectangleCheckbox";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 type RadioButtonFactory = ComponentProps<typeof RadioButtonPreset>["factory"];
@@ -13,6 +19,9 @@ type TextInputFactory = ComponentProps<typeof TextInputPreset>["factory"];
 type TextAreaFactory = ComponentProps<typeof TextAreaPreset>["factory"];
 type RectangleRadioButtonFactory = ComponentProps<
   typeof RectangleRadioButtonPreset
+>["factory"];
+type RectangleCheckboxFactory = ComponentProps<
+  typeof RectangleCheckboxPreset
 >["factory"];
 
 interface Props<T extends TemplateId> {
@@ -31,6 +40,8 @@ interface Props<T extends TemplateId> {
     ? TextAreaFactory
     : T extends "rectangleRadio"
     ? RectangleRadioButtonFactory
+    : T extends "rectangleCheckbox"
+    ? RectangleCheckboxFactory
     : never;
 }
 
@@ -77,6 +88,17 @@ const FormItem4Ref = <T extends TemplateId>(
       <RectangleRadioButtonPreset
         ref={ref}
         factory={{ ...(factory as RectangleRadioButtonFactory) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
+
+  // rectangle checkbox fieldset
+  if (templateId === "rectangleCheckbox") {
+    return (
+      <RectangleCheckboxPreset
+        ref={ref}
+        factory={{ ...(factory as RectangleCheckboxFactory) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
