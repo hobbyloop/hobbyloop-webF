@@ -1,3 +1,3 @@
 export enum Breakpoint {
-  desktop_start = 800,
+  DESKTOP_START = 800,
 }
