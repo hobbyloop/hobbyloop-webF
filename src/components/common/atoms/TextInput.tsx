@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useRef } from "react";
+import { InputHTMLAttributes, forwardRef } from "react";
 import { styled } from "styled-components";
 import { ICustomStyle } from "types/style";
 import { Colors } from "utils/constants/colors";
@@ -39,25 +39,24 @@ const Input = styled.input.attrs(() => ({
   ${(props) => props.customStyle};
 `;
 
-function TextInput({
-  inputSize,
-  placeholder,
-  required = false,
-  customStyle,
-  ...restProps
-}: InputProps) {
-  const inputRef = useRef<HTMLInputElement | null>(null);
+const TextInput = forwardRef<HTMLInputElement, InputProps>(
+  (
+    { inputSize, placeholder, required = false, customStyle, ...restProps },
+    ref,
+  ) => {
+    return (
+      <Input
+        customStyle={customStyle}
+        required={required}
+        inputSize={inputSize}
+        placeholder={placeholder}
+        ref={ref}
+        {...restProps}
+      />
+    );
+  },
+);
 
-  return (
-    <Input
-      customStyle={customStyle}
-      required={required}
-      inputSize={inputSize}
-      placeholder={placeholder}
-      ref={inputRef}
-      {...restProps}
-    />
-  );
-}
+TextInput.displayName = "TextInput";
 
 export default TextInput;
