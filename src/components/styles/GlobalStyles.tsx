@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 
 export const GlobalStyles = createGlobalStyle`
-  ${reset}
+  ${reset} 
 
   div {
     box-sizing: border-box;
@@ -16,4 +16,4 @@ export const GlobalStyles = createGlobalStyle`
       cursor: pointer;
     }    
   }
-  `;
+`;
