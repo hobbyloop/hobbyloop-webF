@@ -6,6 +6,26 @@ interface TitleBarProps extends PaginationProps {
   showPage?: boolean;
 }
 
+function TitleBar({
+  currentPage = 1,
+  maxPage,
+  showPage = true,
+}: TitleBarProps) {
+  return (
+    <Container>
+      <StyledWrapper>
+        <H1>입점 등록신청</H1>
+        {showPage ? (
+          <Pagination currentPage={currentPage} maxPage={maxPage} />
+        ) : (
+          ""
+        )}
+      </StyledWrapper>
+      <H2>업체 등록을 위한 약관에 동의해주세요.</H2>
+    </Container>
+  );
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,24 +49,5 @@ const H2 = styled.h2`
   font-style: normal;
   font-weight: 700;
 `;
-function TitleBar({
-  currentPage = 1,
-  maxPage,
-  showPage = true,
-}: TitleBarProps) {
-  return (
-    <Container>
-      <StyledWrapper>
-        <H1>입점 등록신청</H1>
-        {showPage ? (
-          <Pagination currentPage={currentPage} maxPage={maxPage} />
-        ) : (
-          ""
-        )}
-      </StyledWrapper>
-      <H2>업체 등록을 위한 약관에 동의해주세요.</H2>
-    </Container>
-  );
-}
 
 export default TitleBar;

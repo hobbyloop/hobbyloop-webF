@@ -1,11 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
-import Header from "./Header";
 
 export interface WhiteBoxTemplateProps {
   headerElements?: React.ReactElement;
   children: React.ReactNode;
+}
+
+function WhiteBoxTemplate({ children }: WhiteBoxTemplateProps) {
+  return (
+    <Container>
+      <WhiteWrapper>{children}</WhiteWrapper>
+    </Container>
+  );
 }
 
 const Container = styled.div`
@@ -24,13 +31,5 @@ const WhiteWrapper = styled.div`
   border: 1px solid #e8e5e3;
   background-color: ${Colors.white};
 `;
-
-function WhiteBoxTemplate({ children }: WhiteBoxTemplateProps) {
-  return (
-    <Container>
-      <WhiteWrapper>{children}</WhiteWrapper>
-    </Container>
-  );
-}
 
 export default WhiteBoxTemplate;

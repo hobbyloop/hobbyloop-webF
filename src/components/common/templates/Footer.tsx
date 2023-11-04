@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 
+function Footer() {
+  return <Container>Footer</Container>;
+}
+
 const Container = styled.div`
   position: fixed;
   bottom: 0;
@@ -15,9 +19,5 @@ const Container = styled.div`
   font-size: 12px;
   font-weight: 500;
 `;
-
-function Footer() {
-  return <Container>Footer</Container>;
-}
 
 export default Footer;

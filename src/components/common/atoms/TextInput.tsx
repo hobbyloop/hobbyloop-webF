@@ -11,6 +11,27 @@ interface InputProps
   required?: boolean;
 }
 
+function TextInput({
+  inputSize,
+  placeholder,
+  required = false,
+  customStyle,
+  ...restProps
+}: InputProps) {
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  return (
+    <Input
+      customStyle={customStyle}
+      required={required}
+      inputSize={inputSize}
+      placeholder={placeholder}
+      ref={inputRef}
+      {...restProps}
+    />
+  );
+}
+
 const Input = styled.input.attrs(() => ({
   type: "text",
 }))<InputProps>`
@@ -38,26 +59,5 @@ const Input = styled.input.attrs(() => ({
 
   ${(props) => props.customStyle};
 `;
-
-function TextInput({
-  inputSize,
-  placeholder,
-  required = false,
-  customStyle,
-  ...restProps
-}: InputProps) {
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
-  return (
-    <Input
-      customStyle={customStyle}
-      required={required}
-      inputSize={inputSize}
-      placeholder={placeholder}
-      ref={inputRef}
-      {...restProps}
-    />
-  );
-}
 
 export default TextInput;
