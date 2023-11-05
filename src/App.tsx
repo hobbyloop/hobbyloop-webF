@@ -1,4 +1,5 @@
 import HomePage from "components/pages/HomePage";
+import TestComponents from "components/pages/TestComponents";
 import AdminLoginPage from "components/pages/auth/AdminLoginPage";
 import InstructorLoginPage from "components/pages/auth/InstructorLoginPage";
 import CompanyRegisterPage from "components/pages/company/CompanyRegisterPage";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "facility/register",
     element: <FacilityRegisterPage />,
+  },
+  {
+    path: "test",
+    element: <TestComponents />,
   },
 ]);
 
