@@ -2,15 +2,18 @@ import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 
 export const GlobalStyles = createGlobalStyle`
-    ${reset}
-    html, body {
-    padding: 0;
-  }
-  div, input {
+  ${reset} 
+
+  div {
     box-sizing: border-box;
   }
-  * {
+  
+  button {
     padding: 0;
-    margin: 0;
+    background: none;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }    
   }
 `;

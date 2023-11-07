@@ -1,7 +1,13 @@
-import React from "react";
+import styled from "styled-components";
 
-function Calendar() {
-  return <div>Calendar</div>;
+export interface ICalendarProps {}
+
+const Container = styled.div`
+  display: flex;
+`;
+
+function Calendar({}: ICalendarProps) {
+  return <Container>Calendar</Container>;
 }
 
 export default Calendar;

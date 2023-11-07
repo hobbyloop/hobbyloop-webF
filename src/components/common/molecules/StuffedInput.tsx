@@ -6,6 +6,15 @@ interface StuffedInputProps {
   children: React.ReactNode;
 }
 
+function StuffedInput({ children }: StuffedInputProps) {
+  return (
+    <InputBox>
+      <Input placeholder="inactive" />
+      {children}
+    </InputBox>
+  );
+}
+
 const InputBox = styled.div`
   display: flex;
   justify-content: space-between;
@@ -15,7 +24,6 @@ const InputBox = styled.div`
   height: 48px;
   width: 180px;
   padding: 0 2px;
-  /* background-color: #ccc; */
 `;
 
 const Input = styled.input`
@@ -34,14 +42,5 @@ const Input = styled.input`
     outline: none;
   }
 `;
-
-function StuffedInput({ children }: StuffedInputProps) {
-  return (
-    <InputBox>
-      <Input placeholder="inactive" />
-      {children}
-    </InputBox>
-  );
-}
 
 export default StuffedInput;

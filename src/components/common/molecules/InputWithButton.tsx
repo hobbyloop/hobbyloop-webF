@@ -1,4 +1,4 @@
-import Input from "components/common/atoms/Input";
+import Input from "components/common/atoms/TextInput";
 import React from "react";
 
 function InputWithButton() {
