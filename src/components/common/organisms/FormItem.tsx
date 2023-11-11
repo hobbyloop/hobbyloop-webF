@@ -6,6 +6,7 @@ import TextAreaPreset from "./form/TextAreaTemplate";
 import RectangleRadioButtonPreset from "./form/RectangleRadioButtonPreset";
 import RectangleCheckboxPreset from "./form/RectangleCheckboxPreset";
 import InputWithButtonPreset from "./form/InputWithButtonPreset";
+import DateInputPreset from "./form/DateInputPreset";
 
 type TemplateId =
   | "radio"
@@ -13,7 +14,8 @@ type TemplateId =
   | "textarea"
   | "rectangleRadio"
   | "rectangleCheckbox"
-  | "inputWithButton";
+  | "inputWithButton"
+  | "dateInput";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 type RadioButtonFactory = ComponentProps<typeof RadioButtonPreset>["factory"];
@@ -28,6 +30,7 @@ type RectangleCheckboxFactory = ComponentProps<
 type InputWithButtonFactory = ComponentProps<
   typeof InputWithButtonPreset
 >["factory"];
+type DateInputFactory = ComponentProps<typeof DateInputPreset>["factory"];
 
 interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
@@ -49,6 +52,8 @@ interface Props<T extends TemplateId> {
     ? RectangleCheckboxFactory
     : T extends "inputWithButton"
     ? InputWithButtonFactory
+    : T extends "dateInput"
+    ? DateInputFactory
     : never;
 }
 
@@ -117,6 +122,17 @@ const FormItem4Ref = <T extends TemplateId>(
       <InputWithButtonPreset
         ref={ref}
         factory={{ ...(factory as InputWithButtonFactory) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
+
+  // date input fieldset
+  if (templateId === "dateInput") {
+    return (
+      <DateInputPreset
+        ref={ref}
+        factory={{ ...(factory as DateInputFactory) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
