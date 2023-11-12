@@ -7,6 +7,7 @@ import RectangleRadioButtonPreset from "./form/RectangleRadioButtonPreset";
 import RectangleCheckboxPreset from "./form/RectangleCheckboxPreset";
 import InputWithButtonPreset from "./form/InputWithButtonPreset";
 import DateInputPreset from "./form/DateInputPreset";
+import ImageUploaderPreset from "./form/ImageUploaderPreset";
 
 type TemplateId =
   | "radio"
@@ -15,7 +16,8 @@ type TemplateId =
   | "rectangleRadio"
   | "rectangleCheckbox"
   | "inputWithButton"
-  | "dateInput";
+  | "dateInput"
+  | "imageUploader";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 type RadioButtonFactory = ComponentProps<typeof RadioButtonPreset>["factory"];
@@ -31,6 +33,9 @@ type InputWithButtonFactory = ComponentProps<
   typeof InputWithButtonPreset
 >["factory"];
 type DateInputFactory = ComponentProps<typeof DateInputPreset>["factory"];
+type ImageUploaderFactory = ComponentProps<
+  typeof ImageUploaderPreset
+>["factory"];
 
 interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
@@ -54,6 +59,8 @@ interface Props<T extends TemplateId> {
     ? InputWithButtonFactory
     : T extends "dateInput"
     ? DateInputFactory
+    : T extends "imageUploader"
+    ? ImageUploaderFactory
     : never;
 }
 
@@ -133,6 +140,17 @@ const FormItem4Ref = <T extends TemplateId>(
       <DateInputPreset
         ref={ref}
         factory={{ ...(factory as DateInputFactory) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
+
+  // image uploader fieldset
+  if (templateId === "imageUploader") {
+    return (
+      <ImageUploaderPreset
+        ref={ref}
+        factory={{ ...(factory as ImageUploaderFactory) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
