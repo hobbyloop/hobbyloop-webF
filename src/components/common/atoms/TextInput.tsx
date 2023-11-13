@@ -7,7 +7,7 @@ interface InputProps
   extends InputHTMLAttributes<HTMLInputElement>,
     ICustomStyle {
   inputSize: "long" | "medium" | "short";
-  placeholder: string;
+  placeholder?: string;
   required?: boolean;
 }
 
