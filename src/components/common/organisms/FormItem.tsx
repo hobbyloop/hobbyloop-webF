@@ -20,22 +20,24 @@ type TemplateId =
   | "imageUploader";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
-type RadioButtonFactory = ComponentProps<typeof RadioButtonPreset>["factory"];
-type TextInputFactory = ComponentProps<typeof TextInputPreset>["factory"];
-type TextAreaFactory = ComponentProps<typeof TextAreaPreset>["factory"];
-type RectangleRadioButtonFactory = ComponentProps<
-  typeof RectangleRadioButtonPreset
->["factory"];
-type RectangleCheckboxFactory = ComponentProps<
-  typeof RectangleCheckboxPreset
->["factory"];
-type InputWithButtonFactory = ComponentProps<
-  typeof InputWithButtonPreset
->["factory"];
-type DateInputFactory = ComponentProps<typeof DateInputPreset>["factory"];
-type ImageUploaderFactory = ComponentProps<
-  typeof ImageUploaderPreset
->["factory"];
+// type RadioButtonProps = ComponentProps<
+//   typeof RadioButtonPreset
+// >["inputElement"];
+// type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
+// type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
+// type RectangleRadioButtonProps = ComponentProps<
+//   typeof RectangleRadioButtonPreset
+// >["inputElement"];
+// type RectangleCheckboxProps = ComponentProps<
+//   typeof RectangleCheckboxPreset
+// >["inputElement"];
+// type InputWithButtonProps = ComponentProps<
+//   typeof InputWithButtonPreset
+// >["inputElement"];
+// type DateInputProps = ComponentProps<typeof DateInputPreset>["inputElement"];
+// type ImageUploaderProps = ComponentProps<
+//   typeof ImageUploaderPreset
+// >["inputElement"];
 
 interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
@@ -45,116 +47,116 @@ interface Props<T extends TemplateId> {
   fieldsetOptions?: FieldsetOptions;
 
   /** templateId에 매핑된 컴포넌트를 사용하기 위해 필요한 값 (구성요소) */
-  factory: T extends "radio"
-    ? RadioButtonFactory
-    : T extends "textInput"
-    ? TextInputFactory
-    : T extends "textarea"
-    ? TextAreaFactory
-    : T extends "rectangleRadio"
-    ? RectangleRadioButtonFactory
-    : T extends "rectangleCheckbox"
-    ? RectangleCheckboxFactory
-    : T extends "inputWithButton"
-    ? InputWithButtonFactory
-    : T extends "dateInput"
-    ? DateInputFactory
-    : T extends "imageUploader"
-    ? ImageUploaderFactory
-    : never;
+  inputElement: // T extends "radio"
+  // ? RadioButtonProps
+  // T extends "textInput"
+  //   ? TextInputProps
+  //   : T extends "textarea"
+  //   ? TextAreaProps
+  //   : // : T extends "rectangleRadio"
+  // ? RectangleRadioButtonProps
+  // : T extends "rectangleCheckbox"
+  // ? RectangleCheckboxProps
+  // : T extends "inputWithButton"
+  // ? InputWithButtonProps
+  // : T extends "dateInput"
+  // ? DateInputProps
+  // : T extends "imageUploader"
+  // ? ImageUploaderProps
+  never;
 }
 
 const FormItem4Ref = <T extends TemplateId>(
-  { fieldsetOptions, templateId, factory }: Props<T>,
+  { fieldsetOptions, templateId, inputElement }: Props<T>,
   ref: Ref<HTMLDivElement>,
 ) => {
   // radio button fieldset
-  if (templateId === "radio") {
-    return (
-      <RadioButtonPreset
-        ref={ref}
-        factory={{ ...(factory as RadioButtonFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "radio") {
+  //   return (
+  //     <RadioButtonPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as RadioButtonProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // text input fieldset
-  if (templateId === "textInput") {
-    return (
-      <TextInputPreset
-        ref={ref}
-        factory={{ ...(factory as TextInputFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "textInput") {
+  //   return (
+  //     <TextInputPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as TextInputProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // text area fieldset
-  if (templateId === "textarea") {
-    return (
-      <TextAreaPreset
-        ref={ref}
-        factory={{ ...(factory as TextAreaFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "textarea") {
+  //   return (
+  //     <TextAreaPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as TextAreaProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // rectangle radio button fieldset
-  if (templateId === "rectangleRadio") {
-    return (
-      <RectangleRadioButtonPreset
-        ref={ref}
-        factory={{ ...(factory as RectangleRadioButtonFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "rectangleRadio") {
+  //   return (
+  //     <RectangleRadioButtonPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as RectangleRadioButtonProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // rectangle checkbox fieldset
-  if (templateId === "rectangleCheckbox") {
-    return (
-      <RectangleCheckboxPreset
-        ref={ref}
-        factory={{ ...(factory as RectangleCheckboxFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "rectangleCheckbox") {
+  //   return (
+  //     <RectangleCheckboxPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as RectangleCheckboxProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // input with button fieldset
-  if (templateId === "inputWithButton") {
-    return (
-      <InputWithButtonPreset
-        ref={ref}
-        factory={{ ...(factory as InputWithButtonFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "inputWithButton") {
+  //   return (
+  //     <InputWithButtonPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as InputWithButtonProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // date input fieldset
-  if (templateId === "dateInput") {
-    return (
-      <DateInputPreset
-        ref={ref}
-        factory={{ ...(factory as DateInputFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "dateInput") {
+  //   return (
+  //     <DateInputPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as DateInputProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   // image uploader fieldset
-  if (templateId === "imageUploader") {
-    return (
-      <ImageUploaderPreset
-        ref={ref}
-        factory={{ ...(factory as ImageUploaderFactory) }}
-        fieldSetOptions={fieldsetOptions}
-      />
-    );
-  }
+  // if (templateId === "imageUploader") {
+  //   return (
+  //     <ImageUploaderPreset
+  //       ref={ref}
+  //       inputElement={{ ...(inputElement as ImageUploaderProps) }}
+  //       fieldSetOptions={fieldsetOptions}
+  //     />
+  //   );
+  // }
 
   return <></>;
 };
