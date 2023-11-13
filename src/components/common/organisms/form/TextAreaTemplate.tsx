@@ -2,7 +2,10 @@ import TextArea from "components/common/atoms/TextArea";
 import FieldSetTemplate from "./FieldSetTemplate";
 import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 
-type TextAreaProps = ComponentProps<typeof TextArea>;
+type TextAreaProps = Omit<
+  ComponentProps<typeof TextArea>,
+  "value" | "onChange"
+>;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
