@@ -23,8 +23,8 @@ type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 // type RadioButtonProps = ComponentProps<
 //   typeof RadioButtonPreset
 // >["inputElement"];
-// type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
-// type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
+type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
+type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
 // type RectangleRadioButtonProps = ComponentProps<
 //   typeof RectangleRadioButtonPreset
 // >["inputElement"];
@@ -49,21 +49,21 @@ interface Props<T extends TemplateId> {
   /** templateId에 매핑된 컴포넌트를 사용하기 위해 필요한 값 (구성요소) */
   inputElement: // T extends "radio"
   // ? RadioButtonProps
-  // T extends "textInput"
-  //   ? TextInputProps
-  //   : T extends "textarea"
-  //   ? TextAreaProps
-  //   : // : T extends "rectangleRadio"
-  // ? RectangleRadioButtonProps
-  // : T extends "rectangleCheckbox"
-  // ? RectangleCheckboxProps
-  // : T extends "inputWithButton"
-  // ? InputWithButtonProps
-  // : T extends "dateInput"
-  // ? DateInputProps
-  // : T extends "imageUploader"
-  // ? ImageUploaderProps
-  never;
+  T extends "textInput"
+    ? TextInputProps
+    : T extends "textarea"
+    ? TextAreaProps
+    : // : T extends "rectangleRadio"
+      // ? RectangleRadioButtonProps
+      // : T extends "rectangleCheckbox"
+      // ? RectangleCheckboxProps
+      // : T extends "inputWithButton"
+      // ? InputWithButtonProps
+      // : T extends "dateInput"
+      // ? DateInputProps
+      // : T extends "imageUploader"
+      // ? ImageUploaderProps
+      never;
 }
 
 const FormItem4Ref = <T extends TemplateId>(
@@ -82,26 +82,26 @@ const FormItem4Ref = <T extends TemplateId>(
   // }
 
   // text input fieldset
-  // if (templateId === "textInput") {
-  //   return (
-  //     <TextInputPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as TextInputProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "textInput") {
+    return (
+      <TextInputPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as TextInputProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   // text area fieldset
-  // if (templateId === "textarea") {
-  //   return (
-  //     <TextAreaPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as TextAreaProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "textarea") {
+    return (
+      <TextAreaPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as TextAreaProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   // rectangle radio button fieldset
   // if (templateId === "rectangleRadio") {

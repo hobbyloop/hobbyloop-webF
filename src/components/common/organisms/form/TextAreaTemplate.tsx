@@ -1,25 +1,26 @@
 import TextArea from "components/common/atoms/TextArea";
 import FieldSetTemplate from "./FieldSetTemplate";
-import { ComponentProps, forwardRef } from "react";
+import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 
-type TextAreaFactory = ComponentProps<typeof TextArea>;
+type TextAreaProps = ComponentProps<typeof TextArea>;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   fieldSetOptions?: FieldSetOptions;
-  factory: {
-    onChange: (v: string) => void;
-    element?: TextAreaFactory;
+  inputElement: {
+    value: string;
+    onChange: ChangeEventHandler<HTMLTextAreaElement>;
+    props?: TextAreaProps;
   };
 }
 
 /** formType === "textarea" */
 const TextAreaPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, factory }, ref) => {
-    const { onChange, element } = factory;
+  ({ fieldSetOptions, inputElement }, ref) => {
+    const { props = {}, value, onChange } = inputElement;
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
-        <TextArea {...element} onChange={(e) => onChange(e.target.value)} />
+        <TextArea {...props} onChange={onChange} value={value} />
       </FieldSetTemplate>
     );
   },
