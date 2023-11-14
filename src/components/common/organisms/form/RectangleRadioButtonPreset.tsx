@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import FieldSetTemplate from "./FieldSetTemplate";
-import { ComponentProps, forwardRef } from "react";
+import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import RectangleRadioButton from "components/common/atoms/RectangleRadioButton";
 
-type RectangleRadioButtonFactory = Omit<
+type RectangleRadioButtonProps = Omit<
   ComponentProps<typeof RectangleRadioButton>,
   "name" | "onChange" | "labelNumber"
 > &
@@ -12,41 +12,44 @@ type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   fieldSetOptions?: FieldSetOptions;
-  factory: {
+  inputElement: {
     name: string;
-    onChange: (v: string) => void;
+    value?: string;
+    onChange: ChangeEventHandler<HTMLInputElement>;
     isInline?: boolean;
     /**
      * 라벨에 넘버링 기능을 사용 할 것인지 여부
      * @default false
      * */
     isLabelNumbering?: boolean;
-    elements: RectangleRadioButtonFactory[];
+    propsList: RectangleRadioButtonProps[];
   };
 }
 
 /** formType === "rectangleRadio" */
 const RectangleRadioButtonPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, factory }, ref) => {
+  ({ fieldSetOptions, inputElement }, ref) => {
     const {
       name,
+      value,
       onChange,
       isInline = true,
       isLabelNumbering = false,
-      elements,
-    } = factory;
+      propsList,
+    } = inputElement;
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <FlexContainer inline={isInline}>
-          {elements.map(({ ...rest }, idx) => (
+          {propsList.map(({ ...prop }, idx) => (
             <RectangleRadioButton
-              {...rest}
+              {...prop}
               inline={isInline}
-              key={name + rest.value}
+              key={name + prop.value}
               name={name}
               labelNumber={isLabelNumbering ? idx + 1 : undefined}
-              onChange={(e) => onChange(e.target.value)}
+              checked={value === prop.value}
+              onChange={onChange}
             />
           ))}
         </FlexContainer>

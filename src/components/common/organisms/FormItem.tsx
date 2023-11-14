@@ -25,9 +25,9 @@ type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 // >["inputElement"];
 type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
 type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
-// type RectangleRadioButtonProps = ComponentProps<
-//   typeof RectangleRadioButtonPreset
-// >["inputElement"];
+type RectangleRadioButtonProps = ComponentProps<
+  typeof RectangleRadioButtonPreset
+>["inputElement"];
 // type RectangleCheckboxProps = ComponentProps<
 //   typeof RectangleCheckboxPreset
 // >["inputElement"];
@@ -53,9 +53,9 @@ interface Props<T extends TemplateId> {
     ? TextInputProps
     : T extends "textarea"
     ? TextAreaProps
-    : // : T extends "rectangleRadio"
-      // ? RectangleRadioButtonProps
-      // : T extends "rectangleCheckbox"
+    : T extends "rectangleRadio"
+    ? RectangleRadioButtonProps
+    : // : T extends "rectangleCheckbox"
       // ? RectangleCheckboxProps
       // : T extends "inputWithButton"
       // ? InputWithButtonProps
@@ -104,15 +104,15 @@ const FormItem4Ref = <T extends TemplateId>(
   }
 
   // rectangle radio button fieldset
-  // if (templateId === "rectangleRadio") {
-  //   return (
-  //     <RectangleRadioButtonPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as RectangleRadioButtonProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "rectangleRadio") {
+    return (
+      <RectangleRadioButtonPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as RectangleRadioButtonProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   // rectangle checkbox fieldset
   // if (templateId === "rectangleCheckbox") {
