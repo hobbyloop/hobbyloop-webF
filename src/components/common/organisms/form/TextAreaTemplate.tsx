@@ -11,7 +11,7 @@ type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 interface Props {
   fieldSetOptions?: FieldSetOptions;
   inputElement: {
-    value: string;
+    value?: string;
     onChange: ChangeEventHandler<HTMLTextAreaElement>;
     props?: TextAreaProps;
   };
