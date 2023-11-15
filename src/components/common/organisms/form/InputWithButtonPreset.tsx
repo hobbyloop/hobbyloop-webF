@@ -1,33 +1,32 @@
 import styled from "styled-components";
 import FieldSetTemplate from "./FieldSetTemplate";
-import { ComponentProps, forwardRef } from "react";
+import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import InputWithButton from "components/common/molecules/InputWithButton";
 
-type InputWithButtonFactory = ComponentProps<typeof InputWithButton>;
+type InputWithButtonProps = Omit<
+  ComponentProps<typeof InputWithButton>,
+  "value" | "onChange"
+>;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   fieldSetOptions?: FieldSetOptions;
-  factory: {
-    onChange: (v: string) => void;
-    element: InputWithButtonFactory;
+  inputElement: {
+    value?: string;
+    onChange: ChangeEventHandler<HTMLInputElement>;
+    props: InputWithButtonProps;
   };
 }
 
 /** formType === "inputWithButton" */
 const InputWithButtonPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, factory }, ref) => {
-    const { onChange, element } = factory;
+  ({ fieldSetOptions, inputElement }, ref) => {
+    const { value, onChange, props } = inputElement;
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <FlexContainer>
-          <InputWithButton
-            {...element}
-            onChange={(e) => {
-              onChange(e.target.value);
-            }}
-          />
+          <InputWithButton {...props} onChange={onChange} value={value} />
         </FlexContainer>
       </FieldSetTemplate>
     );
