@@ -20,9 +20,9 @@ type TemplateId =
   | "imageUploader";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
-// type RadioButtonProps = ComponentProps<
-//   typeof RadioButtonPreset
-// >["inputElement"];
+type RadioButtonProps = ComponentProps<
+  typeof RadioButtonPreset
+>["inputElement"];
 type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
 type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
 type RectangleRadioButtonProps = ComponentProps<
@@ -47,9 +47,9 @@ interface Props<T extends TemplateId> {
   fieldsetOptions?: FieldsetOptions;
 
   /** templateId에 매핑된 컴포넌트를 사용하기 위해 필요한 값 (구성요소) */
-  inputElement: // T extends "radio"
-  // ? RadioButtonProps
-  T extends "textInput"
+  inputElement: T extends "radio"
+    ? RadioButtonProps
+    : T extends "textInput"
     ? TextInputProps
     : T extends "textarea"
     ? TextAreaProps
@@ -71,15 +71,15 @@ const FormItem4Ref = <T extends TemplateId>(
   ref: Ref<HTMLDivElement>,
 ) => {
   // radio button fieldset
-  // if (templateId === "radio") {
-  //   return (
-  //     <RadioButtonPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as RadioButtonProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "radio") {
+    return (
+      <RadioButtonPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as RadioButtonProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   // text input fieldset
   if (templateId === "textInput") {
