@@ -9,6 +9,22 @@ export interface IRegisterTemplateProps {
   children: React.ReactNode;
 }
 
+function RegisterTemplate({
+  children,
+  subTitle,
+  title,
+  showPage,
+}: IRegisterTemplateProps) {
+  return (
+    <Container>
+      <WhiteWrapper>
+        <TitleBar maxPage={4} />
+        {children}
+      </WhiteWrapper>
+    </Container>
+  );
+}
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,21 +43,5 @@ const WhiteWrapper = styled.div`
   border: 1px solid #e8e5e3;
   background-color: ${Colors.white};
 `;
-
-function RegisterTemplate({
-  children,
-  subTitle,
-  title,
-  showPage,
-}: IRegisterTemplateProps) {
-  return (
-    <Container>
-      <WhiteWrapper>
-        <TitleBar maxPage={4} />
-        {children}
-      </WhiteWrapper>
-    </Container>
-  );
-}
 
 export default RegisterTemplate;

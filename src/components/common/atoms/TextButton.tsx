@@ -7,6 +7,10 @@ export interface ITextButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     ICustomStyle {}
 
+function TextButton({ customStyle, ...restConfig }: ITextButtonProps) {
+  return <StyledButton {...restConfig} customStyle={customStyle} />;
+}
+
 const StyledButton = styled.button<ICustomStyle>`
   background-color: ${Colors.orange};
   border-radius: 8px;
@@ -20,9 +24,5 @@ const StyledButton = styled.button<ICustomStyle>`
 
   ${(props) => props.customStyle};
 `;
-
-function TextButton({ customStyle, ...restConfig }: ITextButtonProps) {
-  return <StyledButton {...restConfig} customStyle={customStyle} />;
-}
 
 export default TextButton;

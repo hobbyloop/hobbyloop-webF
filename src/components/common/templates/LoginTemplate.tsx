@@ -8,6 +8,37 @@ interface LoginTemplateProps {
   authority: "관리자" | "강사";
 }
 
+/**
+ * @description 권한 받아서 관리자/강사 로그인 구분
+ * @param {string} authority - '강사' | '관리자'
+ */
+function LoginTemplate({ authority }: LoginTemplateProps) {
+  const kakaoLogin = async () => {
+    const response = await axios.get("/oauth2/authorization/kakao");
+    return response.data;
+  };
+
+  const naverLogin = () => {
+    window.location.href = `https://nid.naver.com/oauth2.0/authorize?response_type=code&state=test&client_id=${NAVER_CLIENT_ID}&redirect_uri=${NAVER_REDIRECT_URI}`;
+  };
+
+  return (
+    <Container>
+      <StyledWrapper>
+        <H1>{authority} 로그인</H1>
+        <Span>로그인 어쩌구 저쩌구</Span>
+        <ButtonWrapper>
+          <LoginButton platform="kakao" />
+          <LoginButton platform="google" />
+          <LoginButton onClick={naverLogin} platform="naver" />
+          <LoginButton platform="apple" />
+        </ButtonWrapper>
+        {authority === "관리자" ? <Anchor>입점 신청하기</Anchor> : null}
+      </StyledWrapper>
+    </Container>
+  );
+}
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -52,36 +83,5 @@ const Anchor = styled.a`
     cursor: pointer;
   }
 `;
-
-/**
- * @description 권한 받아서 관리자/강사 로그인 구분
- * @param {string} authority - '강사' | '관리자'
- */
-function LoginTemplate({ authority }: LoginTemplateProps) {
-  const kakaoLogin = async () => {
-    const response = await axios.get("/oauth2/authorization/kakao");
-    return response.data;
-  };
-
-  const naverLogin = () => {
-    window.location.href = `https://nid.naver.com/oauth2.0/authorize?response_type=code&state=test&client_id=${NAVER_CLIENT_ID}&redirect_uri=${NAVER_REDIRECT_URI}`;
-  };
-
-  return (
-    <Container>
-      <StyledWrapper>
-        <H1>{authority} 로그인</H1>
-        <Span>로그인 어쩌구 저쩌구</Span>
-        <ButtonWrapper>
-          <LoginButton platform="kakao" />
-          <LoginButton platform="google" />
-          <LoginButton onClick={naverLogin} platform="naver" />
-          <LoginButton platform="apple" />
-        </ButtonWrapper>
-        {authority === "관리자" ? <Anchor>입점 신청하기</Anchor> : null}
-      </StyledWrapper>
-    </Container>
-  );
-}
 
 export default LoginTemplate;

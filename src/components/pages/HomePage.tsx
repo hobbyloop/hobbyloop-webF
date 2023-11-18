@@ -6,48 +6,6 @@ import { useNavigate } from "react-router-dom";
 import styled, { CSSObject } from "styled-components";
 import { Colors } from "utils/constants/colors";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100vw;
-`;
-
-const ButtonsWrapper = styled.div`
-  display: flex;
-  gap: 22px;
-`;
-
-const Body = styled.div`
-  display: flex;
-  gap: 30px;
-  width: 100%;
-  padding: 80px 120px 120px 80px;
-`;
-
-const Promotion = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 791px;
-  height: 503px;
-  padding: 40px 60px;
-  border: 1px solid #f9f9f9;
-  border-radius: 16px;
-`;
-
-const PriceInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 384px;
-  height: 503px;
-  padding: 40px 0;
-  border: 1px solid #f9f9f9;
-  border-radius: 16px;
-`;
-
 function HomePage() {
   const navigate = useNavigate();
 
@@ -105,5 +63,47 @@ function HomePage() {
     </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100vw;
+`;
+
+const ButtonsWrapper = styled.div`
+  display: flex;
+  gap: 22px;
+`;
+
+const Body = styled.div`
+  display: flex;
+  gap: 30px;
+  width: 100%;
+  padding: 80px 120px 120px 80px;
+`;
+
+const Promotion = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 791px;
+  height: 503px;
+  padding: 40px 60px;
+  border: 1px solid #f9f9f9;
+  border-radius: 16px;
+`;
+
+const PriceInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 384px;
+  height: 503px;
+  padding: 40px 0;
+  border: 1px solid #f9f9f9;
+  border-radius: 16px;
+`;
 
 export default HomePage;

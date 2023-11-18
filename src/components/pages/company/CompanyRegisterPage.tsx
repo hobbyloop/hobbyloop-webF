@@ -3,18 +3,6 @@ import TitleBar from "components/common/molecules/TitleBar";
 import Header from "components/common/templates/Header";
 import WhiteBoxTemplate from "components/common/templates/WhiteBoxTemplate";
 import styled from "styled-components";
-// import { useState } from "react";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  gap: 60px;
-`;
-
-const StyledWhite = styled(WhiteBoxTemplate)`
-  flex: 1;
-`;
 
 function CompanyRegisterPage() {
   //   const [page, setPage] = useState<number>(1);
@@ -29,5 +17,16 @@ function CompanyRegisterPage() {
     </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 60px;
+`;
+
+const StyledWhite = styled(WhiteBoxTemplate)`
+  flex: 1;
+`;
 
 export default CompanyRegisterPage;

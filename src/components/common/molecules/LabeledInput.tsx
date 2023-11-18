@@ -8,12 +8,6 @@ interface LabeledInputProps {
   placeholder: string;
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
 function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
   return (
     <Container>
@@ -22,5 +16,11 @@ function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
     </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
 
 export default LabeledInput;
