@@ -34,7 +34,7 @@ type RectangleCheckboxProps = ComponentProps<
 type InputWithButtonProps = ComponentProps<
   typeof InputWithButtonPreset
 >["inputElement"];
-// type DateInputProps = ComponentProps<typeof DateInputPreset>["inputElement"];
+type DateInputProps = ComponentProps<typeof DateInputPreset>["inputElement"];
 // type ImageUploaderProps = ComponentProps<
 //   typeof ImageUploaderPreset
 // >["inputElement"];
@@ -59,9 +59,9 @@ interface Props<T extends TemplateId> {
     ? RectangleCheckboxProps
     : T extends "inputWithButton"
     ? InputWithButtonProps
-    : // : T extends "dateInput"
-      // ? DateInputProps
-      // : T extends "imageUploader"
+    : T extends "dateInput"
+    ? DateInputProps
+    : // : T extends "imageUploader"
       // ? ImageUploaderProps
       never;
 }
@@ -137,15 +137,15 @@ const FormItem4Ref = <T extends TemplateId>(
   }
 
   // date input fieldset
-  // if (templateId === "dateInput") {
-  //   return (
-  //     <DateInputPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as DateInputProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "dateInput") {
+    return (
+      <DateInputPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as DateInputProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   // image uploader fieldset
   // if (templateId === "imageUploader") {

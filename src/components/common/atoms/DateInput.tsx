@@ -3,23 +3,23 @@ import { Colors } from "utils/constants/colors";
 import { ReactComponent as CalendarIcon } from "assets/ic_calendar.svg";
 import { InputHTMLAttributes, useRef } from "react";
 
-export type Date = {
+export type DateValue = {
   year: number;
   month: number;
   day: number;
 };
 
-export type DateValue = {
-  startDate?: Date;
-  endDate?: Date;
+export type DatePair = {
+  startDate?: DateValue;
+  endDate?: DateValue;
 };
 
 interface Props
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange"> {
   hasEndDate?: boolean;
   onClickCalendar: () => void;
-  value: DateValue;
-  onChange?: (value: DateValue) => void;
+  value: DatePair;
+  onChange?: (value: DatePair) => void;
 }
 
 const DateInput = ({
