@@ -28,9 +28,9 @@ type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
 type RectangleRadioButtonProps = ComponentProps<
   typeof RectangleRadioButtonPreset
 >["inputElement"];
-// type RectangleCheckboxProps = ComponentProps<
-//   typeof RectangleCheckboxPreset
-// >["inputElement"];
+type RectangleCheckboxProps = ComponentProps<
+  typeof RectangleCheckboxPreset
+>["inputElement"];
 type InputWithButtonProps = ComponentProps<
   typeof InputWithButtonPreset
 >["inputElement"];
@@ -55,9 +55,9 @@ interface Props<T extends TemplateId> {
     ? TextAreaProps
     : T extends "rectangleRadio"
     ? RectangleRadioButtonProps
-    : // : T extends "rectangleCheckbox"
-    // ? RectangleCheckboxProps
-    T extends "inputWithButton"
+    : T extends "rectangleCheckbox"
+    ? RectangleCheckboxProps
+    : T extends "inputWithButton"
     ? InputWithButtonProps
     : // : T extends "dateInput"
       // ? DateInputProps
@@ -115,15 +115,15 @@ const FormItem4Ref = <T extends TemplateId>(
   }
 
   // rectangle checkbox fieldset
-  // if (templateId === "rectangleCheckbox") {
-  //   return (
-  //     <RectangleCheckboxPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as RectangleCheckboxProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "rectangleCheckbox") {
+    return (
+      <RectangleCheckboxPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as RectangleCheckboxProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   // input with button fieldset
   if (templateId === "inputWithButton") {

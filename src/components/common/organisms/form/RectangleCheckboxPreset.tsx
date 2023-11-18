@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import FieldSetTemplate from "./FieldSetTemplate";
-import { ComponentProps, forwardRef } from "react";
+import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import RectangleCheckbox from "components/common/atoms/RectangleCheckbox";
 
-type RectangleCheckboxFactory = Omit<
+type RectangleCheckboxProps = Omit<
   ComponentProps<typeof RectangleCheckbox>,
   "name" | "onChange"
 > &
@@ -12,29 +12,29 @@ type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   fieldSetOptions?: FieldSetOptions;
-  factory: {
+  inputElement: {
     name: string;
-    onChange: (v: string, isChecked: boolean) => void;
-    elements: RectangleCheckboxFactory[];
+    value?: string[];
+    onChange: ChangeEventHandler<HTMLInputElement>;
+    propsList: RectangleCheckboxProps[];
   };
 }
 
 /** formType === "rectangleCheckbox" */
 const RectangleCheckboxPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, factory }, ref) => {
-    const { name, onChange, elements } = factory;
+  ({ fieldSetOptions, inputElement }, ref) => {
+    const { name, value = [], onChange, propsList } = inputElement;
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <FlexContainer>
-          {elements.map(({ ...rest }) => (
+          {propsList.map(({ ...prop }) => (
             <RectangleCheckbox
-              {...rest}
-              key={name + rest.value}
+              {...prop}
+              key={name + prop.value}
               name={name}
-              onChange={(e) => {
-                onChange(e.target.value, e.target.checked);
-              }}
+              checked={value.includes(prop.value.toString())}
+              onChange={onChange}
             />
           ))}
         </FlexContainer>
