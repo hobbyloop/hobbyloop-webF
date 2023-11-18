@@ -1,17 +1,12 @@
 // TODO) 삭제 예정 캘린더
 import styled from "styled-components";
 import { useRef } from "react";
-
-type Date = {
-  year: number;
-  month: number;
-  day: number;
-};
+import { DateValue } from "./DateInput";
 
 interface Props {
   hasEndDate?: boolean;
   close: () => void;
-  onApplied: (startDate?: Date, endDate?: Date) => void;
+  onApplied: (startDate?: DateValue, endDate?: DateValue) => void;
 }
 
 const SampleCalendar = ({ hasEndDate, close, onApplied }: Props) => {
