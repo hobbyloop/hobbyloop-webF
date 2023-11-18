@@ -3,17 +3,18 @@ import { ComponentProps, forwardRef } from "react";
 import FieldSetTemplate from "./FieldSetTemplate";
 import styled from "styled-components";
 
-type ImageUploaderFactory = Omit<
+type ImageUploaderProps = Omit<
   ComponentProps<typeof ImageUploader>,
-  "onChange"
-> & { value: File[] };
+  "value" | "onChange"
+>;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   fieldSetOptions?: FieldSetOptions;
-  factory: {
+  inputElement: {
+    value?: File[];
     onChange: (value: File[]) => void;
-    element: ImageUploaderFactory;
+    props?: ImageUploaderProps;
   };
 }
 
@@ -40,17 +41,14 @@ const filterLimitedFileSize = (files: FileList) => {
 
 /** formType === "imageUploader" */
 const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, factory }, ref) => {
-    const {
-      onChange,
-      element: { value: oldFiles, ...elementRest },
-    } = factory;
+  ({ fieldSetOptions, inputElement }, ref) => {
+    const { onChange, value: oldFiles = [], props } = inputElement;
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <HorizontalScrollContainer>
           <ImageUploader
-            {...elementRest}
+            {...props}
             onChange={(e) => {
               const newFiles = e.target.files;
               if (!newFiles) return;

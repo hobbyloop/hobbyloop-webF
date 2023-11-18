@@ -35,9 +35,9 @@ type InputWithButtonProps = ComponentProps<
   typeof InputWithButtonPreset
 >["inputElement"];
 type DateInputProps = ComponentProps<typeof DateInputPreset>["inputElement"];
-// type ImageUploaderProps = ComponentProps<
-//   typeof ImageUploaderPreset
-// >["inputElement"];
+type ImageUploaderProps = ComponentProps<
+  typeof ImageUploaderPreset
+>["inputElement"];
 
 interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
@@ -61,9 +61,9 @@ interface Props<T extends TemplateId> {
     ? InputWithButtonProps
     : T extends "dateInput"
     ? DateInputProps
-    : // : T extends "imageUploader"
-      // ? ImageUploaderProps
-      never;
+    : T extends "imageUploader"
+    ? ImageUploaderProps
+    : never;
 }
 
 const FormItem4Ref = <T extends TemplateId>(
@@ -148,15 +148,15 @@ const FormItem4Ref = <T extends TemplateId>(
   }
 
   // image uploader fieldset
-  // if (templateId === "imageUploader") {
-  //   return (
-  //     <ImageUploaderPreset
-  //       ref={ref}
-  //       inputElement={{ ...(inputElement as ImageUploaderProps) }}
-  //       fieldSetOptions={fieldsetOptions}
-  //     />
-  //   );
-  // }
+  if (templateId === "imageUploader") {
+    return (
+      <ImageUploaderPreset
+        ref={ref}
+        inputElement={{ ...(inputElement as ImageUploaderProps) }}
+        fieldSetOptions={fieldsetOptions}
+      />
+    );
+  }
 
   return <></>;
 };
