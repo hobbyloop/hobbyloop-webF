@@ -1,7 +1,7 @@
 import { ComponentProps, Ref, forwardRef } from "react";
 import FieldSetTemplate from "./form/FieldSetTemplate";
 import TextInputPreset from "./form/TextInputPreset";
-import TextAreaPreset from "./form/TextAreaTemplate";
+import TextAreaPreset from "./form/TextAreaPreset";
 import InputWithButtonPreset from "./form/InputWithButtonPreset";
 import DateInputPreset from "./form/DateInputPreset";
 import ImageUploaderPreset from "./form/ImageUploaderPreset";
