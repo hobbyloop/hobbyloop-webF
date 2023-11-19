@@ -1,5 +1,4 @@
 import { ComponentProps, Ref, forwardRef } from "react";
-import RadioButtonPreset from "./form/RadioButtonPreset";
 import FieldSetTemplate from "./form/FieldSetTemplate";
 import TextInputPreset from "./form/TextInputPreset";
 import TextAreaPreset from "./form/TextAreaTemplate";
@@ -8,9 +7,10 @@ import RectangleCheckboxPreset from "./form/RectangleCheckboxPreset";
 import InputWithButtonPreset from "./form/InputWithButtonPreset";
 import DateInputPreset from "./form/DateInputPreset";
 import ImageUploaderPreset from "./form/ImageUploaderPreset";
+import RadioGroupPreset from "./form/RadioGroupPreset";
 
 type TemplateId =
-  | "radio"
+  | "radioGroup"
   | "textInput"
   | "textarea"
   | "rectangleRadio"
@@ -20,9 +20,7 @@ type TemplateId =
   | "imageUploader";
 
 type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
-type RadioButtonProps = ComponentProps<
-  typeof RadioButtonPreset
->["inputElement"];
+type RadioGroupProps = ComponentProps<typeof RadioGroupPreset>["inputElement"];
 type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
 type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
 type RectangleRadioButtonProps = ComponentProps<
@@ -50,8 +48,8 @@ interface Props<T extends TemplateId> {
   fieldsetOptions?: FieldsetOptions;
 
   /** templateId에 매핑된 컴포넌트를 사용하기 위해 필요한 값 (구성요소) */
-  inputElement: T extends "radio"
-    ? RadioButtonProps
+  inputElement: T extends "radioGroup"
+    ? RadioGroupProps
     : T extends "textInput"
     ? TextInputProps
     : T extends "textarea"
@@ -73,13 +71,13 @@ const FormItem4Ref = <T extends TemplateId>(
   { fieldsetOptions, templateId, inputElement, propertyName }: Props<T>,
   ref: Ref<HTMLDivElement>,
 ) => {
-  // radio button fieldset
-  if (templateId === "radio") {
+  // radio group fieldset
+  if (templateId === "radioGroup") {
     return (
-      <RadioButtonPreset
+      <RadioGroupPreset
         ref={ref}
         propertyName={propertyName}
-        inputElement={{ ...(inputElement as RadioButtonProps) }}
+        inputElement={{ ...(inputElement as RadioGroupProps) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
