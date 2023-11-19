@@ -1,5 +1,5 @@
 import FieldSetTemplate from "../FieldSetTemplate";
-import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef } from "react";
 import useForm from "hooks/useForm";
 import RectangleCheckboxGroup from "components/common/molecules/RectangleCheckboxGroup";
 
@@ -11,25 +11,20 @@ type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 interface Props {
   propertyName: string;
   fieldSetOptions?: FieldSetOptions;
-  inputElement: {
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    props: RectangleCheckboxGroupProps;
-  };
+  inputFactory: RectangleCheckboxGroupProps;
 }
 
 /** formType === "rectangleCheckboxGroup" */
 const RectangleCheckboxGroupPreset = forwardRef<HTMLDivElement, Props>(
-  ({ propertyName, fieldSetOptions, inputElement }, ref) => {
+  ({ propertyName, fieldSetOptions, inputFactory }, ref) => {
     const { value, setValue } = useForm({ propertyName });
     const castedValue = value as string[];
-
-    const { onChange, props: prop } = inputElement;
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <RectangleCheckboxGroup
-          {...prop}
-          groupList={prop.groupList.map(({ ...groupItem }) => ({
+          {...inputFactory}
+          groupList={inputFactory.groupList.map(({ ...groupItem }) => ({
             ...groupItem,
             checked:
               !!groupItem.value &&
@@ -41,7 +36,6 @@ const RectangleCheckboxGroupPreset = forwardRef<HTMLDivElement, Props>(
               } else {
                 setValue([...castedValue, value]);
               }
-              onChange?.(e);
             },
           }))}
         />

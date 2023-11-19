@@ -7,44 +7,37 @@ import useForm from "hooks/useForm";
 
 type DateInputProps = Omit<
   ComponentProps<typeof DateInput>,
-  "value" | "onChange" | "onClickCalendar"
+  "value" | "onClickCalendar"
 >;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   propertyName: string;
   fieldSetOptions?: FieldSetOptions;
-  inputElement: {
-    onChange?: (value: DatePair) => void;
-    props: DateInputProps;
-  };
+  inputFactory: DateInputProps;
 }
 
 /** formType === "dateInput" */
 const DateInputPreset = forwardRef<HTMLDivElement, Props>(
-  ({ propertyName, fieldSetOptions, inputElement }, ref) => {
+  ({ propertyName, fieldSetOptions, inputFactory }, ref) => {
     const { value = {}, setValue } = useForm({ propertyName });
     const castedValue = value as DatePair;
 
-    const { onChange, props: prop } = inputElement;
     const [isOpenCalendar, setOpenCalendar] = useState(false);
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <Container>
           <DateInput
-            {...prop}
+            {...inputFactory}
             value={castedValue}
             onClickCalendar={() => setOpenCalendar(true)}
-            onChange={(value) => {
-              onChange?.(value);
-            }}
           />
           {isOpenCalendar && (
             <AbsoluteContainer>
               {/* TODO) 커스텀 캘린더 제작 완성 후 넣기 */}
               <SampleCalendar
-                hasEndDate={prop.hasEndDate}
+                hasEndDate={inputFactory.hasEndDate}
                 close={() => setOpenCalendar(false)}
                 onApplied={(startDate, endDate) => {
                   setValue({ startDate, endDate });

@@ -4,19 +4,13 @@ import FieldSetTemplate from "../FieldSetTemplate";
 import styled from "styled-components";
 import useForm from "hooks/useForm";
 
-type ImageUploaderProps = Omit<
-  ComponentProps<typeof ImageUploader>,
-  "value" | "onChange"
->;
+type ImageUploaderProps = Omit<ComponentProps<typeof ImageUploader>, "value">;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
   propertyName: string;
   fieldSetOptions?: FieldSetOptions;
-  inputElement: {
-    onChange?: (value: File[]) => void;
-    props?: ImageUploaderProps;
-  };
+  inputFactory: ImageUploaderProps;
 }
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
@@ -42,20 +36,18 @@ const filterLimitedFileSize = (files: FileList) => {
 
 /** formType === "imageUploader" */
 const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
-  ({ propertyName, fieldSetOptions, inputElement }, ref) => {
+  ({ propertyName, fieldSetOptions, inputFactory }, ref) => {
     const { value: oldFiles = [], setValue } = useForm({ propertyName });
     const castedOldFiles = oldFiles as File[];
     const filesUrl = useMemo(() => {
       return castedOldFiles.map((file) => URL.createObjectURL(file));
     }, [castedOldFiles]);
 
-    const { onChange, props } = inputElement;
-
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
         <HorizontalScrollContainer>
           <ImageUploader
-            {...props}
+            {...inputFactory}
             onChange={(e) => {
               const newFiles = e.target.files;
               if (!newFiles) return;
@@ -77,7 +69,6 @@ const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
 
               const updatedFiles = [...castedOldFiles, ...filteredFiles];
               setValue(updatedFiles);
-              onChange?.(updatedFiles);
 
               if (oversizeCount > 0) {
                 alert(
