@@ -2,18 +2,18 @@ import { ComponentProps, Ref, forwardRef } from "react";
 import FieldSetTemplate from "./form/FieldSetTemplate";
 import TextInputPreset from "./form/TextInputPreset";
 import TextAreaPreset from "./form/TextAreaTemplate";
-import RectangleRadioButtonPreset from "./form/RectangleRadioButtonPreset";
 import RectangleCheckboxPreset from "./form/RectangleCheckboxPreset";
 import InputWithButtonPreset from "./form/InputWithButtonPreset";
 import DateInputPreset from "./form/DateInputPreset";
 import ImageUploaderPreset from "./form/ImageUploaderPreset";
 import RadioGroupPreset from "./form/RadioGroupPreset";
+import RectangleRadioGroupPreset from "./form/RectangleRadioGroupPreset";
 
 type TemplateId =
   | "radioGroup"
   | "textInput"
   | "textarea"
-  | "rectangleRadio"
+  | "rectangleRadioGroup"
   | "rectangleCheckbox"
   | "inputWithButton"
   | "dateInput"
@@ -23,8 +23,8 @@ type FieldsetOptions = ComponentProps<typeof FieldSetTemplate>;
 type RadioGroupProps = ComponentProps<typeof RadioGroupPreset>["inputElement"];
 type TextInputProps = ComponentProps<typeof TextInputPreset>["inputElement"];
 type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
-type RectangleRadioButtonProps = ComponentProps<
-  typeof RectangleRadioButtonPreset
+type RectangleRadioGroupProps = ComponentProps<
+  typeof RectangleRadioGroupPreset
 >["inputElement"];
 type RectangleCheckboxProps = ComponentProps<
   typeof RectangleCheckboxPreset
@@ -54,8 +54,8 @@ interface Props<T extends TemplateId> {
     ? TextInputProps
     : T extends "textarea"
     ? TextAreaProps
-    : T extends "rectangleRadio"
-    ? RectangleRadioButtonProps
+    : T extends "rectangleRadioGroup"
+    ? RectangleRadioGroupProps
     : T extends "rectangleCheckbox"
     ? RectangleCheckboxProps
     : T extends "inputWithButton"
@@ -107,13 +107,13 @@ const FormItem4Ref = <T extends TemplateId>(
     );
   }
 
-  // rectangle radio button fieldset
-  if (templateId === "rectangleRadio") {
+  // rectangle radio group fieldset
+  if (templateId === "rectangleRadioGroup") {
     return (
-      <RectangleRadioButtonPreset
+      <RectangleRadioGroupPreset
         ref={ref}
         propertyName={propertyName}
-        inputElement={{ ...(inputElement as RectangleRadioButtonProps) }}
+        inputElement={{ ...(inputElement as RectangleRadioGroupProps) }}
         fieldSetOptions={fieldsetOptions}
       />
     );

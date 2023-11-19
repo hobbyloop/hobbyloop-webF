@@ -1,9 +1,9 @@
 import FieldSetTemplate from "./FieldSetTemplate";
 import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import useForm from "hooks/useForm";
-import RadioGroup from "components/common/molecules/RadioGroup";
+import RectangleRadioGroup from "components/common/molecules/RectangleRadioGroup";
 
-type RadioGroupProps = ComponentProps<typeof RadioGroup>;
+type RectangleRadioGroupProps = ComponentProps<typeof RectangleRadioGroup>;
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
@@ -11,12 +11,12 @@ interface Props {
   fieldSetOptions?: FieldSetOptions;
   inputElement: {
     onChange?: ChangeEventHandler<HTMLInputElement>;
-    props: RadioGroupProps;
+    props: RectangleRadioGroupProps;
   };
 }
 
-/** formType === "radioGroup" */
-const RadioGroupPreset = forwardRef<HTMLDivElement, Props>(
+/** formType === "rectangleRadioGroup" */
+const RectangleRadioGroupPreset = forwardRef<HTMLDivElement, Props>(
   ({ propertyName, fieldSetOptions, inputElement }, ref) => {
     const { value, setValue } = useForm({ propertyName });
     const castedValue = value as string;
@@ -25,7 +25,7 @@ const RadioGroupPreset = forwardRef<HTMLDivElement, Props>(
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
-        <RadioGroup
+        <RectangleRadioGroup
           {...prop}
           groupList={prop.groupList.map(({ ...groupItem }) => ({
             ...groupItem,
@@ -41,5 +41,5 @@ const RadioGroupPreset = forwardRef<HTMLDivElement, Props>(
   },
 );
 
-RadioGroupPreset.displayName = "RadioGroupPreset";
-export default RadioGroupPreset;
+RectangleRadioGroupPreset.displayName = "RectangleRadioGroupPreset";
+export default RectangleRadioGroupPreset;
