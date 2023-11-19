@@ -2,6 +2,7 @@ import styled from "styled-components";
 import FieldSetTemplate from "./FieldSetTemplate";
 import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import RectangleRadioButton from "components/common/atoms/RectangleRadioButton";
+import useForm from "hooks/useForm";
 
 type RectangleRadioButtonProps = Omit<
   ComponentProps<typeof RectangleRadioButton>,
@@ -11,11 +12,11 @@ type RectangleRadioButtonProps = Omit<
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
+  propertyName: string;
   fieldSetOptions?: FieldSetOptions;
   inputElement: {
     name: string;
-    value?: string;
-    onChange: ChangeEventHandler<HTMLInputElement>;
+    onChange?: ChangeEventHandler<HTMLInputElement>;
     isInline?: boolean;
     /**
      * 라벨에 넘버링 기능을 사용 할 것인지 여부
@@ -28,10 +29,12 @@ interface Props {
 
 /** formType === "rectangleRadio" */
 const RectangleRadioButtonPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, inputElement }, ref) => {
+  ({ propertyName, fieldSetOptions, inputElement }, ref) => {
+    const { value, setValue } = useForm({ propertyName });
+    const castedValue = value as string;
+
     const {
       name,
-      value,
       onChange,
       isInline = true,
       isLabelNumbering = false,
@@ -48,8 +51,11 @@ const RectangleRadioButtonPreset = forwardRef<HTMLDivElement, Props>(
               key={name + prop.value}
               name={name}
               labelNumber={isLabelNumbering ? idx + 1 : undefined}
-              checked={value === prop.value}
-              onChange={onChange}
+              checked={castedValue === prop.value}
+              onChange={(e) => {
+                setValue(e.target.value);
+                onChange?.(e);
+              }}
             />
           ))}
         </FlexContainer>

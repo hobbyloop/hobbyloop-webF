@@ -2,6 +2,7 @@ import ImageUploader from "components/common/atoms/ImageUploader";
 import { ComponentProps, forwardRef } from "react";
 import FieldSetTemplate from "./FieldSetTemplate";
 import styled from "styled-components";
+import useForm from "hooks/useForm";
 
 type ImageUploaderProps = Omit<
   ComponentProps<typeof ImageUploader>,
@@ -10,10 +11,10 @@ type ImageUploaderProps = Omit<
 type FieldSetOptions = ComponentProps<typeof FieldSetTemplate>;
 
 interface Props {
+  propertyName: string;
   fieldSetOptions?: FieldSetOptions;
   inputElement: {
-    value?: File[];
-    onChange: (value: File[]) => void;
+    onChange?: (value: File[]) => void;
     props?: ImageUploaderProps;
   };
 }
@@ -41,8 +42,11 @@ const filterLimitedFileSize = (files: FileList) => {
 
 /** formType === "imageUploader" */
 const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
-  ({ fieldSetOptions, inputElement }, ref) => {
-    const { onChange, value: oldFiles = [], props } = inputElement;
+  ({ propertyName, fieldSetOptions, inputElement }, ref) => {
+    const { value: oldFiles = [], setValue } = useForm({ propertyName });
+    const castedOldFiles = oldFiles as File[];
+
+    const { onChange, props } = inputElement;
 
     return (
       <FieldSetTemplate {...fieldSetOptions} ref={ref}>
@@ -54,7 +58,10 @@ const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
               if (!newFiles) return;
 
               // 이미지 최대 첨부 개수 초과
-              if (newFiles.length + oldFiles.length > MAX_IMAGE_UPLOAD_COUNT) {
+              if (
+                newFiles.length + castedOldFiles.length >
+                MAX_IMAGE_UPLOAD_COUNT
+              ) {
                 alert(
                   `이미지는 최대 ${MAX_IMAGE_UPLOAD_COUNT}개까지 첨부할 수 있습니다.`,
                 );
@@ -65,7 +72,9 @@ const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
               const { filteredFiles, oversizeCount } =
                 filterLimitedFileSize(newFiles);
 
-              onChange(filteredFiles);
+              const updatedFiles = [...castedOldFiles, ...filteredFiles];
+              setValue(updatedFiles);
+              onChange?.(updatedFiles);
 
               if (oversizeCount > 0) {
                 alert(
@@ -76,7 +85,7 @@ const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
               }
             }}
           />
-          {oldFiles.map((image) => {
+          {castedOldFiles.map((image) => {
             const url = URL.createObjectURL(image);
             return (
               <ImageContainer key={url}>

@@ -43,6 +43,9 @@ interface Props<T extends TemplateId> {
   /** 사용할 form template의 id를 입력  */
   templateId: T;
 
+  /** 관리할 프로퍼티명 */
+  propertyName: string;
+
   /** fieldset 옵션 */
   fieldsetOptions?: FieldsetOptions;
 
@@ -67,7 +70,7 @@ interface Props<T extends TemplateId> {
 }
 
 const FormItem4Ref = <T extends TemplateId>(
-  { fieldsetOptions, templateId, inputElement }: Props<T>,
+  { fieldsetOptions, templateId, inputElement, propertyName }: Props<T>,
   ref: Ref<HTMLDivElement>,
 ) => {
   // radio button fieldset
@@ -75,6 +78,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <RadioButtonPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as RadioButtonProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -86,6 +90,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <TextInputPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as TextInputProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -97,6 +102,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <TextAreaPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as TextAreaProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -108,6 +114,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <RectangleRadioButtonPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as RectangleRadioButtonProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -119,6 +126,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <RectangleCheckboxPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as RectangleCheckboxProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -130,6 +138,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <InputWithButtonPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as InputWithButtonProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -141,6 +150,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <DateInputPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as DateInputProps) }}
         fieldSetOptions={fieldsetOptions}
       />
@@ -152,6 +162,7 @@ const FormItem4Ref = <T extends TemplateId>(
     return (
       <ImageUploaderPreset
         ref={ref}
+        propertyName={propertyName}
         inputElement={{ ...(inputElement as ImageUploaderProps) }}
         fieldSetOptions={fieldsetOptions}
       />
