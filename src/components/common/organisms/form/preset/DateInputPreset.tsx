@@ -2,7 +2,7 @@ import { ComponentProps, useState, forwardRef } from "react";
 import DateInput, { DatePair } from "components/common/atoms/DateInput";
 import styled from "styled-components";
 import SampleCalendar from "components/common/atoms/SampleCalendar";
-import FieldSetTemplate from "./FieldSetTemplate";
+import FieldSetTemplate from "../FieldSetTemplate";
 import useForm from "hooks/useForm";
 
 type DateInputProps = Omit<

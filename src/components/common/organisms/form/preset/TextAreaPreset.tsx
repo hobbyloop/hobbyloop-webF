@@ -1,5 +1,5 @@
 import TextArea from "components/common/atoms/TextArea";
-import FieldSetTemplate from "./FieldSetTemplate";
+import FieldSetTemplate from "../FieldSetTemplate";
 import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import useForm from "hooks/useForm";
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import FieldSetTemplate from "./FieldSetTemplate";
+import FieldSetTemplate from "../FieldSetTemplate";
 import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import InputWithButton from "components/common/molecules/InputWithButton";
 import useForm from "hooks/useForm";

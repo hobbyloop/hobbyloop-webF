@@ -1,6 +1,6 @@
 import ImageUploader from "components/common/atoms/ImageUploader";
 import { ComponentProps, forwardRef, useMemo } from "react";
-import FieldSetTemplate from "./FieldSetTemplate";
+import FieldSetTemplate from "../FieldSetTemplate";
 import styled from "styled-components";
 import useForm from "hooks/useForm";
 

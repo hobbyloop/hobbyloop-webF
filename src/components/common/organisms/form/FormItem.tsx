@@ -1,13 +1,13 @@
 import { ComponentProps, Ref, forwardRef } from "react";
-import FieldSetTemplate from "./form/FieldSetTemplate";
-import TextInputPreset from "./form/TextInputPreset";
-import TextAreaPreset from "./form/TextAreaPreset";
-import InputWithButtonPreset from "./form/InputWithButtonPreset";
-import DateInputPreset from "./form/DateInputPreset";
-import ImageUploaderPreset from "./form/ImageUploaderPreset";
-import RadioGroupPreset from "./form/RadioGroupPreset";
-import RectangleRadioGroupPreset from "./form/RectangleRadioGroupPreset";
-import RectangleCheckboxGroupPreset from "./form/RectangleCheckboxGroupPreset";
+import FieldSetTemplate from "./FieldSetTemplate";
+import TextInputPreset from "./preset/TextInputPreset";
+import TextAreaPreset from "./preset/TextAreaPreset";
+import InputWithButtonPreset from "./preset/InputWithButtonPreset";
+import DateInputPreset from "./preset/DateInputPreset";
+import ImageUploaderPreset from "./preset/ImageUploaderPreset";
+import RadioGroupPreset from "./preset/RadioGroupPreset";
+import RectangleRadioGroupPreset from "./preset/RectangleRadioGroupPreset";
+import RectangleCheckboxGroupPreset from "./preset/RectangleCheckboxGroupPreset";
 
 type TemplateId =
   | "radioGroup"

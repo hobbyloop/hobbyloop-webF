@@ -1,4 +1,4 @@
-import FieldSetTemplate from "./FieldSetTemplate";
+import FieldSetTemplate from "../FieldSetTemplate";
 import { ChangeEventHandler, ComponentProps, forwardRef } from "react";
 import useForm from "hooks/useForm";
 import RectangleCheckboxGroup from "components/common/molecules/RectangleCheckboxGroup";
