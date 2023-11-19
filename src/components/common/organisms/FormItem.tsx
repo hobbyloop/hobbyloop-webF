@@ -2,19 +2,19 @@ import { ComponentProps, Ref, forwardRef } from "react";
 import FieldSetTemplate from "./form/FieldSetTemplate";
 import TextInputPreset from "./form/TextInputPreset";
 import TextAreaPreset from "./form/TextAreaTemplate";
-import RectangleCheckboxPreset from "./form/RectangleCheckboxPreset";
 import InputWithButtonPreset from "./form/InputWithButtonPreset";
 import DateInputPreset from "./form/DateInputPreset";
 import ImageUploaderPreset from "./form/ImageUploaderPreset";
 import RadioGroupPreset from "./form/RadioGroupPreset";
 import RectangleRadioGroupPreset from "./form/RectangleRadioGroupPreset";
+import RectangleCheckboxGroupPreset from "./form/RectangleCheckboxGroupPreset";
 
 type TemplateId =
   | "radioGroup"
   | "textInput"
   | "textarea"
   | "rectangleRadioGroup"
-  | "rectangleCheckbox"
+  | "rectangleCheckboxGroup"
   | "inputWithButton"
   | "dateInput"
   | "imageUploader";
@@ -26,8 +26,8 @@ type TextAreaProps = ComponentProps<typeof TextAreaPreset>["inputElement"];
 type RectangleRadioGroupProps = ComponentProps<
   typeof RectangleRadioGroupPreset
 >["inputElement"];
-type RectangleCheckboxProps = ComponentProps<
-  typeof RectangleCheckboxPreset
+type RectangleCheckboxGroupProps = ComponentProps<
+  typeof RectangleCheckboxGroupPreset
 >["inputElement"];
 type InputWithButtonProps = ComponentProps<
   typeof InputWithButtonPreset
@@ -56,8 +56,8 @@ interface Props<T extends TemplateId> {
     ? TextAreaProps
     : T extends "rectangleRadioGroup"
     ? RectangleRadioGroupProps
-    : T extends "rectangleCheckbox"
-    ? RectangleCheckboxProps
+    : T extends "rectangleCheckboxGroup"
+    ? RectangleCheckboxGroupProps
     : T extends "inputWithButton"
     ? InputWithButtonProps
     : T extends "dateInput"
@@ -120,12 +120,12 @@ const FormItem4Ref = <T extends TemplateId>(
   }
 
   // rectangle checkbox fieldset
-  if (templateId === "rectangleCheckbox") {
+  if (templateId === "rectangleCheckboxGroup") {
     return (
-      <RectangleCheckboxPreset
+      <RectangleCheckboxGroupPreset
         ref={ref}
         propertyName={propertyName}
-        inputElement={{ ...(inputElement as RectangleCheckboxProps) }}
+        inputElement={{ ...(inputElement as RectangleCheckboxGroupProps) }}
         fieldSetOptions={fieldsetOptions}
       />
     );
