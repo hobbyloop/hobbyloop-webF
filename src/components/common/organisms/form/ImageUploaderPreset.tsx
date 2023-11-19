@@ -1,5 +1,5 @@
 import ImageUploader from "components/common/atoms/ImageUploader";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef, useMemo } from "react";
 import FieldSetTemplate from "./FieldSetTemplate";
 import styled from "styled-components";
 import useForm from "hooks/useForm";
@@ -45,6 +45,9 @@ const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
   ({ propertyName, fieldSetOptions, inputElement }, ref) => {
     const { value: oldFiles = [], setValue } = useForm({ propertyName });
     const castedOldFiles = oldFiles as File[];
+    const filesUrl = useMemo(() => {
+      return castedOldFiles.map((file) => URL.createObjectURL(file));
+    }, [castedOldFiles]);
 
     const { onChange, props } = inputElement;
 
@@ -85,8 +88,7 @@ const ImageUploaderPreset = forwardRef<HTMLDivElement, Props>(
               }
             }}
           />
-          {castedOldFiles.map((image) => {
-            const url = URL.createObjectURL(image);
+          {filesUrl.map((url) => {
             return (
               <ImageContainer key={url}>
                 <Image src={url} />
