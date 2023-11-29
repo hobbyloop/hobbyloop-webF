@@ -22,8 +22,12 @@ function HomePage() {
     width: "117px",
     height: "40px",
     backgroundColor: Colors.white,
-    color: Colors.black,
+    color: Colors.black_14,
     border: `1px solid ${Colors.orange}`,
+  };
+
+  const footerCustomStyle: CSSObject = {
+    backgroundColor: Colors.footer_EA,
   };
 
   return (
@@ -59,7 +63,7 @@ function HomePage() {
           <TextButton>업체 등록하기</TextButton>
         </PriceInfo>
       </Body>
-      <Footer />
+      <Footer customStyle={footerCustomStyle} />
     </Container>
   );
 }
