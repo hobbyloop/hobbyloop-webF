@@ -18,6 +18,6 @@ export enum Colors {
 
   // background
   app = "#EFEFE8",
-
-  black = "#141414",
+  footer_EA = "#EAEAEA",
+  black_14 = "#141414",
 }

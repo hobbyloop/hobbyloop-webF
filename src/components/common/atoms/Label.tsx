@@ -18,7 +18,7 @@ const StyledLabel = styled.label<StyledLabelProps & ICustomStyle>`
   display: flex;
   align-items: center;
   height: 11px;
-  color: ${Colors.black};
+  color: ${Colors.black_14};
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 700;

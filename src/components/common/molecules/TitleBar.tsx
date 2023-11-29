@@ -30,7 +30,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 120px;
-  border-bottom: 1px solid ${Colors.black};
+  border-bottom: 1px solid ${Colors.black_14};
 `;
 
 const StyledWrapper = styled.div`
