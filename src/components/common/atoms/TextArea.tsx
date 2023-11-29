@@ -17,7 +17,7 @@ const Container = styled.textarea`
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.02em;
-  color: ${Colors.black};
+  color: ${Colors.black_14};
   border-radius: 8px;
   box-sizing: border-box;
   border: 1px solid ${Colors.gray};

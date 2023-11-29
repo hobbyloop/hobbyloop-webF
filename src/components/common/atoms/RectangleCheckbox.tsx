@@ -55,7 +55,7 @@ const Label = styled.label`
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   background-color: ${Colors.white};
-  color: ${Colors.black};
+  color: ${Colors.black_14};
   font-size: 16px;
   font-weight: 500;
   display: flex;

@@ -82,7 +82,7 @@ const Label = styled.label<{
   border: 1px solid #d9d9d9;
   border-radius: 8px;
   background-color: ${Colors.white};
-  color: ${({ inline }) => (inline ? Colors.black : Colors.placeholder)};
+  color: ${({ inline }) => (inline ? Colors.black_14 : Colors.placeholder)};
   font-size: ${({ inline }) => (inline ? "16px" : "14px")};
   font-weight: 500;
   line-height: 21px;

@@ -93,7 +93,7 @@ const Input = styled.input`
   border: none;
   font-size: 16px;
   font-weight: 500;
-  color: ${Colors.black};
+  color: ${Colors.black_14};
   background-color: transparent;
 
   &::placeholder {
