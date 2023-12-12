@@ -1,23 +1,18 @@
 export enum Colors {
-  // button
-  orange = "#FF5F05",
-  white = "#FFFFFF",
-  green = "#5B8B4B",
-
-  kakao_login = "#FDDC3F",
-  google_login = "#F4F4F4",
-  naver_login = "#23CB5B",
-  apple_login = "#000000",
-
-  // font
-  placeholder = "#6C6C6C",
-  indicator = "#EB2323",
-
-  // border
-  gray = "#D7D7D7",
-
-  // background
-  app = "#EFEFE8",
-  footer_EA = "#EAEAEA",
+  black_0 = "#000000",
   black_14 = "#141414",
+
+  white_F = "#FFFFFF",
+  white_F4 = "#F4F4F4",
+
+  gray_6C = "#6C6C6C",
+  gray_EA = "#EAEAEA",
+  gray_EFEFE8 = "#EFEFE8",
+  gray_D7 = "#D7D7D7",
+
+  red_EB2323 = "#EB2323",
+  orange_FF5F05 = "#FF5F05",
+  yellow_FDDC3F = "#FDDC3F",
+  green_23CB5B = "#23CB5B",
+  green_5B8B4B = "#5B8B4B",
 }

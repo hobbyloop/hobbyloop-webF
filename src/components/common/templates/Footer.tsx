@@ -30,7 +30,7 @@ const Container = styled.div<FooterProps>`
   height: 200px;
   padding: 50px 120px;
   background-color: ${(props) =>
-    props.isDark ? Colors.black_14 : Colors.footer_EA};
+    props.isDark ? Colors.black_14 : Colors.gray_EA};
   color: #c7c7c7;
   font-size: 12px;
   font-weight: 700;

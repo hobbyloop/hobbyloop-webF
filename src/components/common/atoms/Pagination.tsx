@@ -14,7 +14,7 @@ const Container = styled.div<ICustomStyle>`
   width: 53px;
   height: 27px;
   vertical-align: middle;
-  color: ${Colors.white};
+  color: ${Colors.white_F};
   background-color: ${Colors.black_14};
   border: none;
   border-radius: 18px;

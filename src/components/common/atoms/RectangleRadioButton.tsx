@@ -62,9 +62,9 @@ const Input = styled.input.attrs(() => ({
   display: none;
 
   &:checked + label {
-    border: 1px solid ${Colors.green};
-    background-color: ${Colors.green};
-    color: ${Colors.white};
+    border: 1px solid ${Colors.green_5B8B4B};
+    background-color: ${Colors.green_5B8B4B};
+    color: ${Colors.white_F};
   }
 `;
 
@@ -81,8 +81,8 @@ const Label = styled.label<{
   /* TODO 색상 변수로 빼기 */
   border: 1px solid #d9d9d9;
   border-radius: 8px;
-  background-color: ${Colors.white};
-  color: ${({ inline }) => (inline ? Colors.black_14 : Colors.placeholder)};
+  background-color: ${Colors.white_F};
+  color: ${({ inline }) => (inline ? Colors.black_14 : Colors.gray_D7_6C)};
   font-size: ${({ inline }) => (inline ? "16px" : "14px")};
   font-weight: 500;
   line-height: 21px;

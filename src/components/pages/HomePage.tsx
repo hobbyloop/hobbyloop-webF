@@ -21,13 +21,13 @@ function HomePage() {
     borderRadius: "30px",
     width: "117px",
     height: "40px",
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.white_F,
     color: Colors.black_14,
-    border: `1px solid ${Colors.orange}`,
+    border: `1px solid ${Colors.orange_FF5F05}`,
   };
 
   const footerCustomStyle: CSSObject = {
-    backgroundColor: Colors.footer_EA,
+    backgroundColor: Colors.gray_EA,
   };
 
   return (

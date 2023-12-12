@@ -20,7 +20,7 @@ const Container = styled.textarea`
   color: ${Colors.black_14};
   border-radius: 8px;
   box-sizing: border-box;
-  border: 1px solid ${Colors.gray};
+  border: 1px solid ${Colors.gray_D7};
   resize: none;
   font-weight: 500;
   padding: 12px 20px;
@@ -29,6 +29,6 @@ const Container = styled.textarea`
   scroll-padding: 12px;
 
   &::placeholder {
-    color: ${Colors.placeholder};
+    color: ${Colors.gray_D7_6C};
   }
 `;

@@ -25,7 +25,7 @@ const StyledLabel = styled.label<StyledLabelProps & ICustomStyle>`
 `;
 
 const RequiredIndicator = styled.span`
-  color: ${Colors.indicator};
+  color: ${Colors.red_EB2323};
   font-size: 16px;
   margin-left: 4px;
 `;

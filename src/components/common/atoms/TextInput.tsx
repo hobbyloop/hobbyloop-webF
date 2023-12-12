@@ -51,7 +51,7 @@ const Input = styled.input.attrs(() => ({
   box-sizing: border-box;
 
   ::placeholder {
-    color: ${Colors.placeholder};
+    color: ${Colors.gray_D7_6C};
   }
 
   ${(props) => props.customStyle};

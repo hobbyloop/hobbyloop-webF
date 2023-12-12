@@ -40,7 +40,7 @@ const Container = styled.button`
   height: 206px;
   box-sizing: border-box;
   border-radius: 8px;
-  border: 1px solid ${Colors.gray};
+  border: 1px solid ${Colors.gray_D7};
   display: flex;
   flex-direction: column;
   justify-content: center;

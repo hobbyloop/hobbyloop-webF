@@ -41,7 +41,7 @@ const WhiteWrapper = styled.div`
   padding: 80px 100px;
   border-radius: 16px;
   border: 1px solid #e8e5e3;
-  background-color: ${Colors.white};
+  background-color: ${Colors.white_F};
 `;
 
 export default RegisterTemplate;

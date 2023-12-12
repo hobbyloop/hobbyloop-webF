@@ -19,7 +19,7 @@ const InputBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid ${Colors.gray};
+  border: 1px solid ${Colors.gray_D7};
   border-radius: 8px;
   height: 48px;
   width: 180px;
@@ -33,7 +33,7 @@ const Input = styled.input`
   padding: 9px 20px;
   background: none;
 
-  color: ${Colors.placeholder};
+  color: ${Colors.gray_D7_6C};
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 500;

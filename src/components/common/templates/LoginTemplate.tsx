@@ -56,7 +56,7 @@ const StyledWrapper = styled.div`
   width: 792px;
   height: 592px;
   border-radius: 20px;
-  background-color: ${Colors.white};
+  background-color: ${Colors.white_F};
 `;
 
 const H1 = styled.h1`
