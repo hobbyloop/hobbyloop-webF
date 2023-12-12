@@ -97,7 +97,7 @@ const Input = styled.input`
   background-color: transparent;
 
   &::placeholder {
-    color: ${Colors.gray_D7_6C};
+    color: ${Colors.gray_6C};
   }
 
   &::-webkit-outer-spin-button,

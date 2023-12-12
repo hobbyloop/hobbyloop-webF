@@ -29,6 +29,6 @@ const Container = styled.textarea`
   scroll-padding: 12px;
 
   &::placeholder {
-    color: ${Colors.gray_D7_6C};
+    color: ${Colors.gray_6C};
   }
 `;

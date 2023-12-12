@@ -33,7 +33,7 @@ const Input = styled.input`
   padding: 9px 20px;
   background: none;
 
-  color: ${Colors.gray_D7_6C};
+  color: ${Colors.gray_6C};
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 500;
