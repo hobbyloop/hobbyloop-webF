@@ -48,10 +48,6 @@ const Calendar = () => {
     <Container>
       <Header>
         <div>
-          {/* {currentDate.toLocaleString("default", {
-            month: "long",
-            year: "numeric",
-          })} */}
           <SelectBox defaultValue={currentDate.format("YYYY")} />
         </div>
         <div>
@@ -76,9 +72,10 @@ const Calendar = () => {
 const Container = styled.div`
   width: 440px;
   height: 388px;
+  border: 1px solid ${Colors.black_14};
   border-radius: 16px;
   font-family: "Arial", sans-serif;
-  background-color: #ccc;
+  overflow: hidden;
 `;
 
 const Header = styled.div`
@@ -87,14 +84,12 @@ const Header = styled.div`
   align-items: center;
   height: 64px;
   padding: 16px 32px;
-  border-radius: 16px 16px 0 0;
   background-color: ${Colors.black_14};
 `;
 
 const Body = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  /* gap: 10px; */
   grid-row-gap: 4px;
   grid-column-gap: 16px;
   padding: 10px;
@@ -106,16 +101,19 @@ const Date = styled.div`
   align-items: center;
   height: 40px;
   width: 40px;
-  cursor: pointer;
+  cursor: ${(props) =>
+    typeof props.children === "number" ? "pointer" : "auto"};
   &:hover {
-    background-color: ${Colors.green_5B8B4B};
+    background-color: ${(props) =>
+      typeof props.children === "number" ? Colors.green_5B8B4B : "none"};
     border-radius: 16px;
+    color: ${(props) =>
+      typeof props.children === "number" ? Colors.white_F : Colors.gray_6C};
   }
   font-size: 14px;
   font-weight: 700;
-
   color: ${(props) =>
-    typeof props.children !== "number" ? Colors.gray_6C : Colors.black_14};
+    typeof props.children === "number" ? Colors.black_14 : Colors.gray_6C};
 `;
 
 export default Calendar;
