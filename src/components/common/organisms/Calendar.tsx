@@ -4,9 +4,11 @@ import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import SelectBox from "../atoms/SelectBox";
 import dayjs from "dayjs";
+import useBreakpoint from "hooks/ui/useBreakpoint";
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
+  const breakpoint = useBreakpoint();
 
   const daysInMonth = (year: number, month: number) =>
     dayjs(`${year}-${month + 1}`).daysInMonth();
@@ -45,7 +47,7 @@ const Calendar = () => {
   const nextMonth = () => setCurrentDate(currentDate.add(1, "month"));
 
   return (
-    <Container>
+    <Container isMobile={breakpoint.isMobile}>
       <Header>
         <div>
           <SelectBox defaultValue={currentDate.format("YYYY")} />
@@ -55,7 +57,7 @@ const Calendar = () => {
           <button onClick={nextMonth}>&gt;</button>
         </div>
       </Header>
-      <Body>
+      <Body isMobile={breakpoint.isMobile}>
         <Date>일</Date>
         <Date>월</Date>
         <Date>화</Date>
@@ -69,9 +71,8 @@ const Calendar = () => {
   );
 };
 
-const Container = styled.div`
-  width: 440px;
-  height: 388px;
+const Container = styled.div<{ isMobile: boolean }>`
+  width: ${({ isMobile }) => (isMobile ? "100%" : "440px")};
   border: 1px solid ${Colors.black_14};
   border-radius: 16px;
   font-family: "Arial", sans-serif;
@@ -87,11 +88,11 @@ const Header = styled.div`
   background-color: ${Colors.black_14};
 `;
 
-const Body = styled.div`
+const Body = styled.div<{ isMobile: boolean }>`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-row-gap: 4px;
-  grid-column-gap: 16px;
+  grid-column-gap: ${({ isMobile }) => (isMobile ? "8px" : "16px")};
   padding: 10px;
 `;
 
@@ -99,8 +100,8 @@ const Date = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 40px;
+  width: 100%;
+  aspect-ratio: 1;
   cursor: ${(props) =>
     typeof props.children === "number" ? "pointer" : "auto"};
   &:hover {
