@@ -72,14 +72,19 @@ const Calendar = () => {
 };
 
 const Container = styled.div<{ isMobile: boolean }>`
+  position: relative;
   width: ${({ isMobile }) => (isMobile ? "100%" : "440px")};
   border: 1px solid ${Colors.black_14};
   border-radius: 16px;
   font-family: "Arial", sans-serif;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Header = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -89,6 +94,8 @@ const Header = styled.div`
 `;
 
 const Body = styled.div<{ isMobile: boolean }>`
+  width: 100%;
+  max-width: 440px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-row-gap: 4px;
