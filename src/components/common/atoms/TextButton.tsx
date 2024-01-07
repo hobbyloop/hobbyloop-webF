@@ -12,7 +12,7 @@ function TextButton({ customStyle, ...restConfig }: ITextButtonProps) {
 }
 
 const StyledButton = styled.button<ICustomStyle>`
-  background-color: ${Colors.orange};
+  background-color: ${Colors.orange_FF5F05};
   border-radius: 8px;
   color: #ffffff;
   font-size: 16px;

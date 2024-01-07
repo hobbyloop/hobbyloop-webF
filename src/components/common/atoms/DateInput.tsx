@@ -83,7 +83,7 @@ const Container = styled.div<{ isLongWidth: boolean }>`
   border-radius: 8px;
   padding: 0 12px 0 20px;
   box-sizing: border-box;
-  background-color: ${Colors.white};
+  background-color: ${Colors.white_F};
 `;
 
 const Input = styled.input`
@@ -93,11 +93,11 @@ const Input = styled.input`
   border: none;
   font-size: 16px;
   font-weight: 500;
-  color: ${Colors.black};
+  color: ${Colors.black_14};
   background-color: transparent;
 
   &::placeholder {
-    color: ${Colors.placeholder};
+    color: ${Colors.gray_6C};
   }
 
   &::-webkit-outer-spin-button,

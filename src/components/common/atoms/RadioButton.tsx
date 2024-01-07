@@ -29,14 +29,14 @@ const Container = styled.input.attrs(() => ({
   -moz-appearance: none;
 
   &:checked {
-    border: 1px solid ${Colors.orange};
+    border: 1px solid ${Colors.orange_FF5F05};
 
     &:after {
       content: "";
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-color: ${Colors.orange};
+      background-color: ${Colors.orange_FF5F05};
     }
   }
 `;

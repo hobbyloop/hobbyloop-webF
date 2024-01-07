@@ -32,7 +32,7 @@ const Container = styled.div`
 `;
 
 const Label = styled.label`
-  color: ${Colors.black};
+  color: ${Colors.black_14};
   font-size: 16px;
   letter-spacing: -0.02;
   font-weight: 500;

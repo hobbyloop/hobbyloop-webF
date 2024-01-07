@@ -40,7 +40,7 @@ const Container = styled.button`
   height: 206px;
   box-sizing: border-box;
   border-radius: 8px;
-  border: 1px solid ${Colors.gray};
+  border: 1px solid ${Colors.gray_D7};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,12 +50,12 @@ const Container = styled.button`
 
 const AddButton = styled.div`
   height: 20px;
-  border: 1px solid ${Colors.black};
+  border: 1px solid ${Colors.black_14};
   border-radius: 12px;
   padding: 0 8px;
   font-size: 12px;
   font-weight: 500;
-  color: ${Colors.black};
+  color: ${Colors.black_14};
 `;
 
 export default ImageUploader;

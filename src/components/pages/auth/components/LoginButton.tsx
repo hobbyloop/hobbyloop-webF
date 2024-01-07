@@ -22,19 +22,19 @@ function LoginButton({ platform, ...restButtonProps }: LoginButtonProps) {
   switch (platform) {
     case "kakao":
       theme.icon = "카카오 아이콘";
-      theme.color = Colors.kakao_login;
+      theme.color = Colors.yellow_FDDC3F;
       break;
     case "google":
       theme.icon = "구글 아이콘";
-      theme.color = Colors.google_login;
+      theme.color = Colors.white_F4;
       break;
     case "naver":
       theme.icon = "네이버 아이콘";
-      theme.color = Colors.naver_login;
+      theme.color = Colors.green_23CB5B;
       break;
     case "apple":
       theme.icon = "애플 아이콘";
-      theme.color = Colors.apple_login;
+      theme.color = Colors.black_0;
       break;
   }
 

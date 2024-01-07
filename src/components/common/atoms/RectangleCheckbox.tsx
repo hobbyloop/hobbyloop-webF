@@ -39,9 +39,9 @@ const Input = styled.input.attrs(() => ({
   display: none;
 
   &:checked + label {
-    border: 1px solid ${Colors.green};
-    background-color: ${Colors.green};
-    color: ${Colors.white};
+    border: 1px solid ${Colors.green_5B8B4B};
+    background-color: ${Colors.green_5B8B4B};
+    color: ${Colors.white_F};
   }
 `;
 
@@ -54,8 +54,8 @@ const Label = styled.label`
   /* TODO 색상 변수로 빼기 */
   border: 1px solid #d9d9d9;
   border-radius: 8px;
-  background-color: ${Colors.white};
-  color: ${Colors.black};
+  background-color: ${Colors.white_F};
+  color: ${Colors.black_14};
   font-size: 16px;
   font-weight: 500;
   display: flex;

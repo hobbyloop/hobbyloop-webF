@@ -52,7 +52,7 @@ const Container = styled.div`
   border-radius: 8px;
   padding-right: 16px;
   box-sizing: border-box;
-  background-color: ${Colors.white};
+  background-color: ${Colors.white_F};
 `;
 
 const RightSpacingInput = styled(Input)`
@@ -69,9 +69,9 @@ const ActionButton = styled(TextButton)`
   display: flex;
   align-items: center;
   padding: 0 16px;
-  border: 1px solid ${Colors.green};
-  color: ${Colors.green};
-  background-color: ${Colors.white};
+  border: 1px solid ${Colors.green_5B8B4B};
+  color: ${Colors.green_5B8B4B};
+  background-color: ${Colors.white_F};
   font-weight: bold;
   letter-spacing: -0.02em;
 `;

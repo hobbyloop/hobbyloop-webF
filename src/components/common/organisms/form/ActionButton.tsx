@@ -39,7 +39,7 @@ const ActionButton = ({
 export default ActionButton;
 
 const Button = styled(TextButton)`
-  background-color: ${Colors.white};
+  background-color: ${Colors.white_F};
   border: 1px solid #a3a3a3;
   color: #777777;
 `;
