@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@storybook/addon-backgrounds": "^7.5.2",
-    "@tanstack/react-query": "^4.33.0",
+    "@tanstack/react-query": "^5.21.7",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -14,7 +14,7 @@
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
     "@typescript-eslint/parser": "^6.7.5",
-    "axios": "^1.5.1",
+    "axios": "^1.6.7",
     "dayjs": "^1.11.10",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
@@ -28,7 +28,7 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
-    "styled-components": "^6.0.8",
+    "styled-components": "^6.1.8",
     "styled-reset": "^4.5.1",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"

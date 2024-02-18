@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+## 사용 언어 및 라이브러리
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- **언어/JS라이브러리:** TypeScript/React
+- **라이브러리:**
+  - @tanstack/react-query
+  - axios
+  - dayjs
+- **전역 상태 관리:** recoil
+- **CSS in JS:** styled-components
 
-## Available Scripts
+## 환경
 
-In the project directory, you can run:
+- **Node 버전:** 20.6.0
+- **Yarn 버전:** 1.22.19
 
-### `yarn start`
+## 코드 작성 Convention
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **상수:** colors\_색상계열\_EE22EE
+- **변수명:** 동사X, 배열: ~s(복수형)
+- **함수명:** 동사O
+- **로직 종료 후에는 한 줄 띄우기**
+- **재사용되는 함수, 컴포넌트에는 JSDoc 주석 추가**(description, param, return)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 코드 구조 및 디자인 시스템
 
-### `yarn test`
+- **Atomic Design 구조 사용**
+- **Root.tsx:** 컨테이너 컴포넌트
+- **App.tsx:** 라우팅
+- **assets:** production에 사용되는 것은 src/assets, 아닌 것은 public/assets
+- **components:** Atomic Design 구조를 따라 atom, molecules, organisms, templates로 구성
+- **pages/components:** 해당 페이지에서 재사용되는 컴포넌트
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Git Commit Convention
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Commit message는 다음과 같은 규칙으로 작성
+  - **Add:** UI 추가, 개발 관련 코드 추가
+  - **Fix:** 오타, 버그 수정
+  - **Update:** 기존 부분 수정
+  - **Feat:** 새로운 기능 추가
+  - **Design:** UI 변경
+  - **!HotFix:** 급하게 치명적인 버그 수정
+  - **Docs:** 개발 문서 추가/수정
+  - **Test:** 테스트 코드 작성
+  - **Refactor:** 코드/구조 리팩토링
+  - **Rename:** 폴더/파일명 변경
+  - **Remove:** 불필요 파일/코드 삭제
