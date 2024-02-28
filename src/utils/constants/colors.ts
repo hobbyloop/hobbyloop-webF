@@ -9,6 +9,7 @@ export enum Colors {
   gray_EA = "#EAEAEA",
   gray_EFEFE8 = "#EFEFE8",
   gray_D7 = "#D7D7D7",
+  gray_D9 = "#D9D9D9",
 
   red_EB2323 = "#EB2323",
   orange_FF5F05 = "#FF5F05",

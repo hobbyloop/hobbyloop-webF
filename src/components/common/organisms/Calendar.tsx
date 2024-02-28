@@ -50,7 +50,7 @@ const Calendar = () => {
     <Container isMobile={breakpoint.isMobile}>
       <Header>
         <div>
-          <SelectBox defaultValue={currentDate.format("YYYY")} />
+          {/* <SelectBox defaultValue={currentDate.format("YYYY")} /> */}
         </div>
         <div>
           <button onClick={prevMonth}>&lt;</button>
