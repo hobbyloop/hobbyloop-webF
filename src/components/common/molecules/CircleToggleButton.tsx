@@ -18,7 +18,7 @@ function CircleToggleButton() {
       toggle={toggle}
       aria-label={`change toggle`}
     >
-      <StyledCircle toggle={toggle as boolean} />
+      <StyledCircle toggle={toggle} />
       <StyledSpanWrap>
         <span>ON</span>
         <span>OFF</span>
