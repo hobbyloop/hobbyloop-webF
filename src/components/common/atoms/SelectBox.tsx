@@ -21,7 +21,7 @@ interface Props {
 
 /**
  * @example 
- *    <NewSelectBox
+ *    <SelectBox
         options={OPTIONS}
         selectedOption={[
           { key: "1", value: "헬스/피티" },
