@@ -1,8 +1,20 @@
-import React from "react";
 import styled from "styled-components";
+import Label from "../atoms/Label";
+import TextInput from "../atoms/TextInput";
 
 interface LabeledInputProps {
-  children: React.ReactNode;
+  labelText: string;
+  inputId: string;
+  placeholder: string;
+}
+
+function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
+  return (
+    <Container>
+      <Label htmlFor={inputId}>{labelText}</Label>
+      <TextInput inputSize="long" id={inputId} placeholder={placeholder} />
+    </Container>
+  );
 }
 
 const Container = styled.div`
@@ -10,9 +22,5 @@ const Container = styled.div`
   flex-direction: column;
   gap: 16px;
 `;
-
-function LabeledInput({ children }: LabeledInputProps) {
-  return <Container>{children}</Container>;
-}
 
 export default LabeledInput;
