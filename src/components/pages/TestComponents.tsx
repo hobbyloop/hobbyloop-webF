@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import PhoneAuthInput from "components/common/molecules/PhoneAuthInput";
+import CircleToggleButton from "components/common/molecules/CircleToggleButton";
 
 const TestComponents = () => {
   return (
     <Container>
-      <PhoneAuthInput isAuthenticated={false} />
+      <CircleToggleButton />
     </Container>
   );
 };
