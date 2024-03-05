@@ -1,19 +1,16 @@
 import { useCallback, useState } from "react";
 import styled, { css } from "styled-components";
 import { Colors } from "utils/constants/colors";
-import Span from "../atoms/Span";
 
 /**
- *
- * @description 재활용성? 낮아보여서 한곳에 useState , 컴포넌트 ui들을 더 쪼개지 않고 한곳에 두었습니다.
+ * @description on/off 토글 버튼
  */
-
-export default function CircleToggleButton() {
-  const [toggle, setToggle] = useState(false);
+function CircleToggleButton() {
+  const [toggle, setToggle] = useState<boolean>(false);
 
   const handleToggleBtn = useCallback(() => {
     setToggle((prev) => !prev);
-  }, [toggle]);
+  }, []);
 
   return (
     <StyledButton
@@ -23,8 +20,8 @@ export default function CircleToggleButton() {
     >
       <StyledCircle toggle={toggle as boolean} />
       <StyledSpanWrap>
-        <Span>ON</Span>
-        <Span>OFF</Span>
+        <span>ON</span>
+        <span>OFF</span>
       </StyledSpanWrap>
     </StyledButton>
   );
@@ -34,6 +31,7 @@ const StyledSpanWrap = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
 const StyledButton = styled.button<{ toggle: boolean }>`
   width: 60px;
   height: 31px;
@@ -63,7 +61,7 @@ const StyledCircle = styled.div<{ toggle: boolean }>`
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-  trasnform: translateX(0px);
+  transform: translateX(0px);
 
   ${({ toggle }) =>
     toggle &&
@@ -71,3 +69,5 @@ const StyledCircle = styled.div<{ toggle: boolean }>`
       transform: translateX(29px);
     `}
 `;
+
+export default CircleToggleButton;
