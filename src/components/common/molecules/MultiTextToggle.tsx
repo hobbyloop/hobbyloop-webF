@@ -1,16 +1,11 @@
-import TextToggle, { ITextToggle } from "components/common/atoms/TextToggle";
+import Atom from "components/common/atoms";
+import { ITextToggle } from "components/common/atoms/TextToggle";
 import styled from "styled-components";
 
 export interface IMultiTextToggleProps {
   toggleStates: ITextToggle[];
   onClickToggleEvent: (name: string) => void;
 }
-
-const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: calc(100% - 68px);
-`;
 
 /**
  * @description 여러 개의 TextToggle 관리 컴포넌트
@@ -25,18 +20,24 @@ function MultiTextToggle({
     <Container>
       {toggleStates.map((state) => {
         return (
-          <TextToggle
+          <Atom.TextToggle
             key={state.name}
             name={state.name}
             isSelected={state.isSelected}
             onClickToggleEvent={onClickToggleEvent}
           >
             {state.text}
-          </TextToggle>
+          </Atom.TextToggle>
         );
       })}
     </Container>
   );
 }
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 68px);
+`;
 
 export default MultiTextToggle;

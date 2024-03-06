@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import Label from "../atoms/Label";
-import TextInput from "../atoms/TextInput";
+import Atom from "components/common/atoms";
 
 interface LabeledInputProps {
   labelText: string;
@@ -11,8 +10,8 @@ interface LabeledInputProps {
 function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
   return (
     <Container>
-      <Label htmlFor={inputId}>{labelText}</Label>
-      <TextInput inputSize="long" id={inputId} placeholder={placeholder} />
+      <Atom.Label htmlFor={inputId}>{labelText}</Atom.Label>
+      <Atom.TextInput inputSize="long" id={inputId} placeholder={placeholder} />
     </Container>
   );
 }

@@ -13,26 +13,26 @@ function CircleToggleButton() {
   }, []);
 
   return (
-    <StyledButton
+    <Button
       onClick={handleToggleBtn}
       toggle={toggle}
       aria-label={`change toggle`}
     >
-      <StyledCircle toggle={toggle} />
-      <StyledSpanWrap>
+      <Circle toggle={toggle} />
+      <SpanWrapper>
         <span>ON</span>
         <span>OFF</span>
-      </StyledSpanWrap>
-    </StyledButton>
+      </SpanWrapper>
+    </Button>
   );
 }
 
-const StyledSpanWrap = styled.div`
+const SpanWrapper = styled.div`
   display: flex;
   justify-content: space-around;
 `;
 
-const StyledButton = styled.button<{ toggle: boolean }>`
+const Button = styled.button<{ toggle: boolean }>`
   width: 60px;
   height: 31px;
   background-color: ${Colors.gray_D7};
@@ -50,7 +50,7 @@ const StyledButton = styled.button<{ toggle: boolean }>`
     `}
 `;
 
-const StyledCircle = styled.div<{ toggle: boolean }>`
+const Circle = styled.div<{ toggle: boolean }>`
   position: absolute;
   width: 29px;
   height: 29px;
