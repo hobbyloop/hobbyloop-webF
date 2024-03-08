@@ -1,7 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 import styled, { CSSObject, css } from "styled-components";
-import Label from "../atoms/Label";
-import TextButton from "../atoms/TextButton";
+import Atom from "components/common/atoms";
 
 interface Props extends HTMLAttributes<HTMLElement> {
   isAuthenticated: boolean;
@@ -10,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 const PhoneAuthInput: FC<Props> = ({ isAuthenticated }) => {
   return (
     <Container>
-      <Label required>전화번호 인증</Label>
+      <Atom.Label required>전화번호 인증</Atom.Label>
 
       <Contents $isAuthenticated={isAuthenticated}>
         <TopInputContainer>
@@ -29,7 +28,9 @@ const PhoneAuthInput: FC<Props> = ({ isAuthenticated }) => {
 
         <BottomInputContainer>
           <BottomInput placeholder="인증번호를 입력해 주세요." />
-          <TextButton customStyle={ButtonCustom}>인증번호 받기</TextButton>
+          <Atom.TextButton customStyle={ButtonCustom}>
+            인증번호 받기
+          </Atom.TextButton>
         </BottomInputContainer>
       </Contents>
 

@@ -1,8 +1,7 @@
 import { InputHTMLAttributes, useRef } from "react";
-import Input from "components/common/atoms/TextInput";
 import styled from "styled-components";
-import TextButton from "../atoms/TextButton";
 import { Colors } from "utils/constants/colors";
+import Atom from "../atoms";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
@@ -39,8 +38,6 @@ function InputWithButton({
   );
 }
 
-export default InputWithButton;
-
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -55,7 +52,7 @@ const Container = styled.div`
   background-color: ${Colors.white_F};
 `;
 
-const RightSpacingInput = styled(Input)`
+const RightSpacingInput = styled(Atom.TextInput)`
   flex: 1;
   outline: none;
   border: none;
@@ -63,7 +60,7 @@ const RightSpacingInput = styled(Input)`
   background-color: transparent;
 `;
 
-const ActionButton = styled(TextButton)`
+const ActionButton = styled(Atom.TextButton)`
   width: auto;
   height: 32px;
   display: flex;
@@ -75,3 +72,5 @@ const ActionButton = styled(TextButton)`
   font-weight: bold;
   letter-spacing: -0.02em;
 `;
+
+export default InputWithButton;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import PhoneAuthInput from "components/common/molecules/PhoneAuthInput";
-import NewSelectBox, { IOption } from "components/common/atoms/NewSelectBox";
+
 import { useState } from "react";
+import { IOption, SelectBox } from "components/common/atoms/SelectBox";
 
 const OPTIONS = [
   { key: "1", value: "헬스/피티" },
@@ -20,9 +20,9 @@ const TestComponents = () => {
     <Container>
       {/* <PhoneAuthInput isAuthenticated={false} /> */}
 
-      <NewSelectBox
+      <SelectBox
         options={OPTIONS}
-        selectedOption={selectedOption}
+        defaultOption={OPTIONS[0]}
         onChange={(option: IOption) => setSelectedOption(option)}
       />
     </Container>
