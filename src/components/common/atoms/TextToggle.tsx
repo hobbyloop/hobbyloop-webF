@@ -13,6 +13,29 @@ interface ITextToggleProps extends Pick<ITextToggle, "name" | "isSelected"> {
   onClickToggleEvent: (name: string) => void;
 }
 
+/**
+ * @description text 토글버튼
+ * @param {string} children - 사용할 텍스트
+ * @param {string} name - 토글 상태의 고유 이름값
+ * @param {boolean} isSelected - 선택 여부
+ */
+function TextToggle({
+  children,
+  name,
+  isSelected,
+  onClickToggleEvent,
+}: ITextToggleProps) {
+  return (
+    <Container
+      onClick={() => onClickToggleEvent(name)}
+      name={name}
+      isSelected={isSelected}
+    >
+      {children}
+    </Container>
+  );
+}
+
 const Container = styled.button<{ isSelected: boolean }>`
   display: flex;
   align-items: center;
@@ -49,28 +72,5 @@ const Container = styled.button<{ isSelected: boolean }>`
       }
     `}
 `;
-
-/**
- * @description text 토글버튼
- * @param {string} children - 사용할 텍스트
- * @param {string} name - 토글 상태의 고유 이름값
- * @param {boolean} isSelected - 선택 여부
- */
-function TextToggle({
-  children,
-  name,
-  isSelected,
-  onClickToggleEvent,
-}: ITextToggleProps) {
-  return (
-    <Container
-      onClick={() => onClickToggleEvent(name)}
-      name={name}
-      isSelected={isSelected}
-    >
-      {children}
-    </Container>
-  );
-}
 
 export default TextToggle;

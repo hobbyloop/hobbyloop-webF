@@ -1,6 +1,6 @@
+import Atom from "components/common/atoms";
 import { InputHTMLAttributes, forwardRef, useId } from "react";
 import styled from "styled-components";
-import RadioButton from "../atoms/RadioButton";
 import { Colors } from "utils/constants/colors";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
@@ -15,15 +15,12 @@ const LabeledRadioButton = forwardRef<HTMLDivElement, Props>(
 
     return (
       <Container ref={ref}>
-        <RadioButton {...rest} id={radioButtonId} name={name} />
+        <Atom.RadioButton {...rest} id={radioButtonId} name={name} />
         <Label htmlFor={radioButtonId}>{label}</Label>
       </Container>
     );
   },
 );
-
-LabeledRadioButton.displayName = "LabeledRadioButton";
-export default LabeledRadioButton;
 
 const Container = styled.div`
   display: flex;
@@ -31,10 +28,14 @@ const Container = styled.div`
   gap: 8px;
 `;
 
-const Label = styled.label`
+const Label = styled(Atom.Label)`
   color: ${Colors.black_14};
   font-size: 16px;
   letter-spacing: -0.02;
   font-weight: 500;
   cursor: pointer;
 `;
+
+LabeledRadioButton.displayName = "LabeledRadioButton";
+
+export default LabeledRadioButton;
