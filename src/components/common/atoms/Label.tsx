@@ -1,20 +1,38 @@
-import React, { LabelHTMLAttributes } from "react";
-import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
 import { ReactComponent as Info } from "assets/ic_info.svg";
+import { LabelHTMLAttributes } from "react";
+import styled from "styled-components";
 import { ICustomStyle } from "types/style";
+import { Colors } from "utils/constants/colors";
 
-interface LabelProps
-  extends StyledLabelProps,
-    LabelHTMLAttributes<HTMLLabelElement>,
-    ICustomStyle {}
-
-interface StyledLabelProps {
-  required?: boolean;
+export interface LabelConfig extends LabelHTMLAttributes<HTMLLabelElement> {
   showInfo?: boolean;
+  isRequired?: boolean;
 }
 
-const StyledLabel = styled.label<StyledLabelProps & ICustomStyle>`
+type Props = LabelConfig & ICustomStyle;
+
+function Label({
+  htmlFor,
+  children,
+  isRequired,
+  showInfo,
+  customStyle,
+}: Props) {
+  return (
+    <StyledLabel
+      htmlFor={htmlFor}
+      isRequired={isRequired}
+      showInfo={showInfo}
+      customStyle={customStyle}
+    >
+      {children}
+      {isRequired && <RequiredIndicator>*</RequiredIndicator>}
+      {showInfo && <StyledInfo width="16px" height="16px" />}
+    </StyledLabel>
+  );
+}
+
+const StyledLabel = styled.label<LabelConfig & ICustomStyle>`
   display: flex;
   align-items: center;
   height: 11px;
@@ -22,6 +40,8 @@ const StyledLabel = styled.label<StyledLabelProps & ICustomStyle>`
   font-family: "Pretendard";
   font-size: 16px;
   font-weight: 700;
+
+  ${(props) => props.customStyle}
 `;
 
 const RequiredIndicator = styled.span`
@@ -37,26 +57,5 @@ const StyledInfo = styled(Info)`
   margin-left: 6px;
   padding-bottom: 2px;
 `;
-
-function Label({
-  htmlFor,
-  children,
-  required,
-  showInfo,
-  customStyle,
-}: LabelProps) {
-  return (
-    <StyledLabel
-      htmlFor={htmlFor}
-      required={required}
-      showInfo={showInfo}
-      customStyle={customStyle}
-    >
-      {children}
-      {required && <RequiredIndicator>*</RequiredIndicator>}
-      {showInfo && <StyledInfo width="16px" height="16px" />}
-    </StyledLabel>
-  );
-}
 
 export default Label;

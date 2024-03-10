@@ -1,17 +1,31 @@
-import styled from "styled-components";
+import styled, { CSSObject } from "styled-components";
 import Atom from "components/common/atoms";
+import { LabelConfig } from "components/common/atoms/Label";
+import { InputConfig } from "components/common/atoms/TextInput";
 
-interface LabeledInputProps {
-  labelText: string;
-  inputId: string;
-  placeholder: string;
+interface Props {
+  isRequired?: boolean;
+  labelConfig?: LabelConfig;
+  inputConfig?: InputConfig;
+  labelStyle?: CSSObject;
+  inputStyle?: CSSObject;
 }
 
-function LabeledInput({ labelText, inputId, placeholder }: LabeledInputProps) {
+function LabeledInput({
+  isRequired,
+  labelConfig,
+  labelStyle,
+  inputConfig,
+  inputStyle,
+}: Props) {
   return (
     <Container>
-      <Atom.Label htmlFor={inputId}>{labelText}</Atom.Label>
-      <Atom.TextInput inputSize="long" id={inputId} placeholder={placeholder} />
+      <Atom.Label
+        isRequired={isRequired}
+        {...labelConfig}
+        customStyle={labelStyle}
+      />
+      <Atom.TextInput {...inputConfig} customStyle={inputStyle} />
     </Container>
   );
 }

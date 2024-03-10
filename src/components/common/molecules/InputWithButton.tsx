@@ -10,6 +10,10 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 function InputWithButton({
+  // inputConfig
+  // buttonConfig
+  // customInputStyle
+  // customButtonStyle
   buttonText,
   placeholder,
   onButtonClick,
@@ -18,12 +22,7 @@ function InputWithButton({
   const ref = useRef<HTMLInputElement>(null);
   return (
     <Container>
-      <RightSpacingInput
-        {...rest}
-        ref={ref}
-        inputSize="long"
-        placeholder={placeholder}
-      />
+      <Atom.TextInput {...rest} ref={ref} />
       <ActionButton
         type="button"
         onClick={() => {

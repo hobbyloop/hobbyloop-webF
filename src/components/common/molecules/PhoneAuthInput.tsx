@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 const PhoneAuthInput: FC<Props> = ({ isAuthenticated }) => {
   return (
     <Container>
-      <Atom.Label required>전화번호 인증</Atom.Label>
+      <Atom.Label isRequired={true}>전화번호 인증</Atom.Label>
 
       <Contents $isAuthenticated={isAuthenticated}>
         <TopInputContainer>

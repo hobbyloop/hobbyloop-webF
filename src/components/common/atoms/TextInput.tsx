@@ -1,51 +1,18 @@
-import { InputHTMLAttributes, forwardRef } from "react";
-import { styled } from "styled-components";
-import { ICustomStyle } from "types/style";
-import { Colors } from "utils/constants/colors";
+import { forwardRef, InputHTMLAttributes } from "react";
+import styled, { css } from "styled-components";
+import { ICustomStyle } from "types/style"; // ICustomStyle의 정확한 정의가 필요합니다.
+import { Colors } from "utils/constants/colors"; // Colors의 정확한 값이 필요합니다.
 
-interface InputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
-    ICustomStyle {
-  inputSize: "long" | "medium" | "short";
-  placeholder?: string;
-  required?: boolean;
-}
+export type InputConfig = InputHTMLAttributes<HTMLInputElement>;
 
-const TextInput = forwardRef<HTMLInputElement, InputProps>(
-  (
-    { inputSize, placeholder, required = false, customStyle, ...restProps },
-    ref,
-  ) => {
-    return (
-      <Input
-        customStyle={customStyle}
-        required={required}
-        inputSize={inputSize}
-        placeholder={placeholder}
-        ref={ref}
-        {...restProps}
-      />
-    );
-  },
-);
+type Props = InputConfig & ICustomStyle;
 
-const Input = styled.input.attrs(() => ({
-  type: "text",
-}))<InputProps>`
+const defaultStyles = css<Props>`
   border: 1px solid #d7d7d7;
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
-  width: ${(props) => {
-    switch (props.inputSize) {
-      case "long":
-        return "100%";
-      case "medium":
-        return "290px";
-      case "short":
-        return "180px";
-    }
-  }};
+  width: ${(props) => props.width || 180}px;
   height: 48px;
   padding: 0 20px;
   box-sizing: border-box;
@@ -54,8 +21,16 @@ const Input = styled.input.attrs(() => ({
     color: ${Colors.gray_6C};
   }
 
-  ${(props) => props.customStyle};
+  ${(props) => props.customStyle && css(props.customStyle)}
 `;
+
+const Input = styled.input<Props>`
+  ${defaultStyles}
+`;
+
+const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+  return <Input ref={ref} {...props} />;
+});
 
 TextInput.displayName = "TextInput";
 
