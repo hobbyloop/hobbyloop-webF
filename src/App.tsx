@@ -3,8 +3,12 @@ import TestComponents from "components/pages/TestComponents";
 import AdminLoginPage from "components/pages/auth/AdminLoginPage";
 import InstructorLoginPage from "components/pages/auth/InstructorLoginPage";
 import CompanyRegisterPage from "components/pages/company/CompanyRegisterPage";
+import CourseManage from "components/pages/course/CourseManage";
+import CourseRegister from "components/pages/course/CourseRegsiter";
 import FacilityRegisterPage from "components/pages/facility/FacilityRegisterPage";
 import ProfileSelectPage from "components/pages/facility/ProfileSelectPage";
+import SubscriptionManage from "components/pages/subscription/SubscriptionManage";
+import SubscriptionRegister from "components/pages/subscription/SubscriptionRegister";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 
@@ -35,6 +39,22 @@ const router = createBrowserRouter([
   {
     path: "facility/register",
     element: <FacilityRegisterPage />,
+  },
+  {
+    path: "subscription/register",
+    element: <SubscriptionRegister />,
+  },
+  {
+    path: "subscription/manage",
+    element: <SubscriptionManage />,
+  },
+  {
+    path: "course/register",
+    element: <CourseRegister />,
+  },
+  {
+    path: "course/manage",
+    element: <CourseManage />,
   },
   {
     path: "test",
