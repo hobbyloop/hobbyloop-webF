@@ -1,8 +1,7 @@
 import Logo from "components/common/atoms/Logo";
-import TitleBar from "components/common/molecules/TitleBar";
-import Header from "components/common/templates/Header";
-import WhiteBoxTemplate from "components/common/templates/WhiteBoxTemplate";
 import styled from "styled-components";
+import TermsAgreementForm from "./TermsAgreementForm";
+import Header from "components/common/templates/Header";
 
 function CompanyRegisterPage() {
   //   const [page, setPage] = useState<number>(1);
@@ -11,9 +10,7 @@ function CompanyRegisterPage() {
       <Header>
         <Logo />
       </Header>
-      <StyledWhite>
-        <TitleBar currentPage={1} maxPage={4} />
-      </StyledWhite>
+      <TermsAgreementForm />
     </Container>
   );
 }
@@ -21,12 +18,9 @@ function CompanyRegisterPage() {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   gap: 60px;
-`;
-
-const StyledWhite = styled(WhiteBoxTemplate)`
-  flex: 1;
 `;
 
 export default CompanyRegisterPage;
