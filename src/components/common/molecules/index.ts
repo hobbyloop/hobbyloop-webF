@@ -2,6 +2,7 @@ import CircleToggleButton from "./CircleToggleButton";
 import InputWithButton from "./InputWithButton";
 import LabeledInput from "./LabeledInput";
 import LabeledRadioButton from "./LabeledRadioButton";
+import LabeledTextarea from "./LabeledTextArea";
 import MultiTextToggle from "./MultiTextToggle";
 import PhoneAuthInput from "./PhoneAuthInput";
 import RadioGroup from "./RadioGroup";
@@ -15,6 +16,7 @@ const Molecule = {
   InputWithButton,
   LabeledInput,
   LabeledRadioButton,
+  LabeledTextarea,
   MultiTextToggle,
   PhoneAuthInput,
   RadioGroup,
