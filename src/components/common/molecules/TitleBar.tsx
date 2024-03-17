@@ -4,24 +4,24 @@ import Pagination, { PaginationProps } from "../atoms/Pagination";
 
 interface TitleBarProps extends PaginationProps {
   showPage?: boolean;
+  title: string;
+  subTitle: string;
 }
 
 function TitleBar({
   currentPage = 1,
   maxPage,
   showPage = true,
+  title,
+  subTitle,
 }: TitleBarProps) {
   return (
     <Container>
       <StyledWrapper>
-        <H1>입점 등록신청</H1>
-        {showPage ? (
-          <Pagination currentPage={currentPage} maxPage={maxPage} />
-        ) : (
-          ""
-        )}
+        <H1>{title}</H1>
+        {showPage && <Pagination currentPage={currentPage} maxPage={maxPage} />}
       </StyledWrapper>
-      <H2>업체 등록을 위한 약관에 동의해주세요.</H2>
+      <H2>{subTitle}</H2>
     </Container>
   );
 }
@@ -29,6 +29,7 @@ function TitleBar({
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 32px;
   height: 120px;
   border-bottom: 1px solid ${Colors.black_14};
 `;
