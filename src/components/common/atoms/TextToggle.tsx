@@ -36,15 +36,17 @@ function TextToggle({
   );
 }
 
-const Container = styled.button<{ isSelected: boolean }>`
+const Container = styled.button.attrs(() => ({
+  type: "button",
+}))<{ isSelected: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   border: 1px solid ${Colors.gray_D7};
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 16px;
   color: ${Colors.black_14};
   background-color: ${Colors.white_F};
 
