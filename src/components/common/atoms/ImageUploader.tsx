@@ -1,26 +1,47 @@
+import React, { useState, useRef, ChangeEvent } from "react";
 import styled from "styled-components";
 import { Colors } from "utils/constants/colors";
 import { ReactComponent as CameraIcon } from "assets/ic_camera.svg";
-import { InputHTMLAttributes, useRef } from "react";
+import { InputHTMLAttributes } from "react";
 
 interface Props
   extends Omit<
     InputHTMLAttributes<HTMLInputElement>,
     "type" | "accept" | "multiple" | "style" | "value"
-  > {}
+  > {
+  text: string;
+}
 
-const ImageUploader = ({ ...rest }: Props) => {
+const ImageUploader = ({ text, ...rest }: Props) => {
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const openFileExplorer = () => {
     inputRef.current?.click();
   };
 
+  const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <>
       <Container type="button" onClick={openFileExplorer}>
-        <CameraIcon />
-        <AddButton>이미지 추가하기</AddButton>
+        {imagePreview ? (
+          <ImagePreview src={imagePreview} alt="Preview" />
+        ) : (
+          <>
+            <CameraIcon />
+            <ButtonText>{text}</ButtonText>
+          </>
+        )}
       </Container>
       <input
         {...rest}
@@ -29,6 +50,7 @@ const ImageUploader = ({ ...rest }: Props) => {
         accept="image/*"
         style={{ display: "none" }}
         multiple
+        onChange={handleImageChange}
       />
     </>
   );
@@ -46,16 +68,24 @@ const Container = styled.button`
   justify-content: center;
   align-items: center;
   gap: 10px;
+  position: relative;
+  overflow: hidden;
 `;
 
-const AddButton = styled.div`
-  height: 20px;
-  border: 1px solid ${Colors.black_14};
-  border-radius: 12px;
+const ButtonText = styled.span`
   padding: 0 8px;
   font-size: 12px;
   font-weight: 500;
   color: ${Colors.black_14};
+`;
+
+const ImagePreview = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 export default ImageUploader;
