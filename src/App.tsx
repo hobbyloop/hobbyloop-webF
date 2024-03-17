@@ -3,6 +3,7 @@ import TestComponents from "components/pages/TestComponents";
 import AdminLoginPage from "components/pages/auth/AdminLoginPage";
 import InstructorLoginPage from "components/pages/auth/InstructorLoginPage";
 import CompanyRegisterPage from "components/pages/company/CompanyRegisterPage";
+import RegisterSecondPage from "components/pages/company/RegisterSecondPage";
 import CourseManage from "components/pages/course/CourseManage";
 import CourseRegister from "components/pages/course/CourseRegsiter";
 import FacilityRegisterPage from "components/pages/facility/FacilityRegisterPage";
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: "test",
     element: <TestComponents />,
+  },
+  {
+    path: "test/jy",
+    element: <RegisterSecondPage />,
   },
 ]);
 

@@ -1,12 +1,21 @@
 import { FC, HTMLAttributes } from "react";
 import styled, { CSSObject, css } from "styled-components";
 import Atom from "components/common/atoms";
+import { Colors } from "utils/constants/colors";
 
-interface Props extends HTMLAttributes<HTMLElement> {
+interface Props {
   isAuthenticated: boolean;
+  getPhoneVerification?: () => void;
 }
 
-const PhoneAuthInput: FC<Props> = ({ isAuthenticated }) => {
+/**
+ * @param isAuthenticated - 전화번호 인증 여부 (안되면 경고 UI)
+ * @param getPhoneVerification - 인증번호 받기 함수
+ */
+const PhoneAuthInput: FC<Props> = ({
+  isAuthenticated,
+  getPhoneVerification,
+}) => {
   return (
     <Container>
       <Atom.Label isRequired={true}>전화번호 인증</Atom.Label>
@@ -14,9 +23,9 @@ const PhoneAuthInput: FC<Props> = ({ isAuthenticated }) => {
       <Contents $isAuthenticated={isAuthenticated}>
         <TopInputContainer>
           <Select>
-            <option value="skt">SKT</option>
-            <option value="kt">KT</option>
-            <option value="lg">LG</option>
+            <option value="SKT">SKT</option>
+            <option value="KT">KT</option>
+            <option value="LG">LG</option>
           </Select>
           <Span>|</Span>
           <Input
@@ -34,17 +43,20 @@ const PhoneAuthInput: FC<Props> = ({ isAuthenticated }) => {
         </BottomInputContainer>
       </Contents>
 
-      <WarningMessage>잘못된 인증번호 입니다.</WarningMessage>
+      {!isAuthenticated && (
+        <WarningMessage>인증번호를 확인해 주세요.</WarningMessage>
+      )}
     </Container>
   );
 };
 
 const ButtonCustom: CSSObject = {
-  backgroundColor: "transparent",
-  border: "1px solid #5B8B4B",
-  color: "#5B8B4B",
+  backgroundColor: "white",
+  border: `1px solid ${Colors.gray_D7}`,
+  color: `${Colors.black_14}`,
   width: "117px",
   height: "32px",
+  fontWeight: 600,
 };
 
 const Container = styled.div`
