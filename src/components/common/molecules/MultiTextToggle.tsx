@@ -1,8 +1,9 @@
 import Atom from "components/common/atoms";
 import { ITextToggle } from "components/common/atoms/TextToggle";
 import styled from "styled-components";
+import { ICustomStyle } from "types/style";
 
-export interface IMultiTextToggleProps {
+export interface Props extends ICustomStyle {
   toggleStates: ITextToggle[];
   onClickToggleEvent: (name: string) => void;
 }
@@ -15,9 +16,10 @@ export interface IMultiTextToggleProps {
 function MultiTextToggle({
   toggleStates,
   onClickToggleEvent,
-}: IMultiTextToggleProps) {
+  customStyle,
+}: Props) {
   return (
-    <Container>
+    <Container customStyle={customStyle}>
       {toggleStates.map((state) => {
         return (
           <Atom.TextToggle
@@ -34,10 +36,11 @@ function MultiTextToggle({
   );
 }
 
-const Container = styled.div`
+const Container = styled.div<ICustomStyle>`
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 68px);
+
+  ${(props) => props.customStyle}
 `;
 
 export default MultiTextToggle;
