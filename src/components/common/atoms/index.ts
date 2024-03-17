@@ -8,7 +8,7 @@ import RectangleCheckbox from "./RectangleCheckbox";
 import RectangleRadioButton from "./RectangleRadioButton";
 import SampleCalendar from "./SampleCalendar";
 import SelectBox from "./SelectBox";
-import TextArea from "./TextArea";
+import Textarea from "./Textarea";
 import TextButton from "./TextButton";
 import TextInput from "./TextInput";
 import TextToggle from "./TextToggle";
@@ -24,7 +24,7 @@ const Atom = {
   RectangleRadioButton,
   SampleCalendar,
   SelectBox,
-  TextArea,
+  Textarea,
   TextButton,
   TextInput,
   TextToggle,
