@@ -7,35 +7,6 @@ import { Colors } from "utils/constants/colors";
 import AddBreakTimeForm from "./AddBreakTimeForm";
 import BreakTimeList from "./BreakTimeList";
 
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-`;
-
-const LabeledImageUploader = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const FlexAlignCenterWrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const ImageUploaderDivider = styled.div`
-  width: 1px;
-  height: 34px;
-  background-color: ${Colors.gray_D7};
-  margin: 0 12px;
-`;
-
-const Caption = styled.span`
-  font-size: 12px;
-  color: ${Colors.gray_6C};
-  margin-top: 8px;
-`;
-
 const days: ITextToggle[] = [
   { name: "sun", text: "일", isSelected: false },
   { name: "mon", text: "월", isSelected: false },
@@ -143,9 +114,58 @@ function FacilityRegisterForm() {
         </LabeledImageUploader>
         <BreakTimeList />
         <AddBreakTimeForm />
+        <ButtonWrapper>
+          <Atom.TextButton
+            customStyle={{
+              backgroundColor: Colors.white_F,
+              width: "180px",
+              color: Colors.gray_6C,
+              border: `1px solid ${Colors.gray_D7}`,
+            }}
+          >
+            취소
+          </Atom.TextButton>
+          <Atom.TextButton customStyle={{ width: "384px" }}>
+            다음
+          </Atom.TextButton>
+        </ButtonWrapper>
       </FormContainer>
     </WhiteBoxTemplate>
   );
 }
+
+const FormContainer = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
+const LabeledImageUploader = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const FlexAlignCenterWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const ImageUploaderDivider = styled.div`
+  width: 1px;
+  height: 34px;
+  background-color: ${Colors.gray_D7};
+  margin: 0 12px;
+`;
+
+const Caption = styled.span`
+  font-size: 12px;
+  color: ${Colors.gray_6C};
+  margin-top: 8px;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 export default FacilityRegisterForm;

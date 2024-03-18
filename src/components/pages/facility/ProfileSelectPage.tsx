@@ -1,23 +1,9 @@
 import Footer from "components/common/templates/Footer";
 import Header from "components/common/templates/Header";
 import styled from "styled-components";
-import { Colors } from "utils/constants/colors";
 
 import addFacilityImg from "assets/Group 4404.png";
 import { Link } from "react-router-dom";
-
-const Container = styled.div`
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  height: 80vh;
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 function ProfileSelectPage() {
   return (
@@ -37,5 +23,18 @@ function ProfileSelectPage() {
     </Container>
   );
 }
+
+const Container = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default ProfileSelectPage;

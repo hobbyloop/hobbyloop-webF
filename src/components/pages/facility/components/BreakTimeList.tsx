@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import BreakTimeItem from "./BreakTimeItem";
 
-const Container = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-`;
 function BreakTimeList() {
   return (
     <Container>
@@ -13,5 +8,11 @@ function BreakTimeList() {
     </Container>
   );
 }
+
+const Container = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
 
 export default BreakTimeList;
