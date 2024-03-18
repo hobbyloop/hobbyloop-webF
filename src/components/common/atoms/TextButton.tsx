@@ -11,7 +11,7 @@ function TextButton({ customStyle, ...restConfig }: ITextButtonProps) {
   return <StyledButton {...restConfig} customStyle={customStyle} />;
 }
 
-const StyledButton = styled.button<ICustomStyle>`
+export const StyledButton = styled.button<ICustomStyle>`
   background-color: ${Colors.orange_FF5F05};
   border-radius: 8px;
   color: #ffffff;

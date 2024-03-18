@@ -12,7 +12,7 @@ const defaultStyles = css<Props>`
   border-radius: 8px;
   font-size: 16px;
   font-weight: 500;
-  width: ${(props) => props.width || 180}px;
+  width: ${(props) => props.width || "180px"};
   height: 48px;
   padding: 0 20px;
   box-sizing: border-box;

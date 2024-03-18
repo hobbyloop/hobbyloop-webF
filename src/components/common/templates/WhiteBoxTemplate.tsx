@@ -23,7 +23,8 @@ const Container = styled.div`
 `;
 
 const WhiteWrapper = styled.div`
-  width: 792px;
+  max-width: 792px;
+  width: 100%;
   margin-top: 48px;
   margin-bottom: 120px;
   padding: 80px 100px;

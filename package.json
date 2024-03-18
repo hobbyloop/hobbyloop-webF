@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@hookform/resolvers": "^3.3.4",
     "@storybook/addon-backgrounds": "^7.5.2",
     "@tanstack/react-query": "^5.21.7",
     "@testing-library/jest-dom": "^5.14.1",
@@ -82,7 +83,10 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "eslint-plugin-storybook": "^0.6.15",
     "prop-types": "^15.8.1",
+    "react-hook-form": "^7.51.0",
     "storybook": "^7.5.2",
-    "webpack": "^5.89.0"
+    "webpack": "^5.89.0",
+    "yup": "^1.4.0",
+    "zod": "^3.22.4"
   }
 }

@@ -11,11 +11,15 @@ import SubscriptionManage from "components/pages/subscription/SubscriptionManage
 import SubscriptionRegister from "components/pages/subscription/SubscriptionRegister";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import styled from "styled-components";
+import { Colors } from "utils/constants/colors";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: ${Colors.gray_EFEFE8};
   gap: 5px;
+  width: 100%;
+  height: 100%;
 `;
 
 const router = createBrowserRouter([
