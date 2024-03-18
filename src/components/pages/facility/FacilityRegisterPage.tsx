@@ -3,6 +3,7 @@ import Header from "components/common/templates/Header";
 import WhiteBoxTemplate from "components/common/templates/WhiteBoxTemplate";
 import React from "react";
 import styled from "styled-components";
+import FacilityRegisterForm from "./components/FacilityRegisterForm";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ function FacilityRegisterPage() {
       <Header>
         <Logo />
       </Header>
-      <WhiteBoxTemplate>asdf</WhiteBoxTemplate>
+      <FacilityRegisterForm />
     </Container>
   );
 }
